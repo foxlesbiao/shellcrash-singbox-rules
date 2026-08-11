@@ -30,7 +30,7 @@ jobs:
 
       - name: Generate singbox ALL template
         run: |
-          python3 py/generate_singbox_all.py
+          python3 generate_singbox_all.py
 
       - name: Validate template JSON
         run: |
