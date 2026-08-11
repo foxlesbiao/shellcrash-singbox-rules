@@ -1,0 +1,5862 @@
+{
+ "outbounds": [
+  {
+   "tag": "🚀 节点选择",
+   "type": "selector",
+   "outbounds": [
+    "♻️ 自动选择",
+    "🎯 本地直连",
+    "🇭🇰 香港节点",
+    "🇺🇸 美国节点",
+    "🇯🇵 日本节点",
+    "🇸🇬 新加坡节点",
+    "🇹🇼 台湾节点",
+    "🇰🇷 韩国节点",
+    "🐟 漏网之鱼"
+   ]
+  },
+  {
+   "tag": "♻️ 自动选择",
+   "type": "urltest",
+   "interval": "2m",
+   "use_all_providers": true
+  },
+  {
+   "tag": "🤖 AI 平台",
+   "type": "selector",
+   "outbounds": [
+    "🚀 节点选择",
+    "🎯 本地直连"
+   ]
+  },
+  {
+   "tag": "🎬 奈飞视频",
+   "type": "selector",
+   "outbounds": [
+    "🚀 节点选择",
+    "🎯 本地直连"
+   ]
+  },
+  {
+   "tag": "▶️ 油管视频",
+   "type": "selector",
+   "outbounds": [
+    "🚀 节点选择",
+    "🎯 本地直连"
+   ]
+  },
+  {
+   "tag": "🌍 国际媒体",
+   "type": "selector",
+   "outbounds": [
+    "🚀 节点选择",
+    "🎯 本地直连"
+   ]
+  },
+  {
+   "tag": "🎮 外服游戏",
+   "type": "selector",
+   "outbounds": [
+    "🚀 节点选择",
+    "🎯 本地直连"
+   ]
+  },
+  {
+   "tag": "🦾 Steam平台",
+   "type": "selector",
+   "outbounds": [
+    "🎯 本地直连",
+    "🚀 节点选择"
+   ]
+  },
+  {
+   "tag": "🀄️ 国内流量",
+   "type": "selector",
+   "outbounds": [
+    "🎯 本地直连",
+    "🚀 节点选择"
+   ]
+  },
+  {
+   "tag": "🛑 广告拦截",
+   "type": "selector",
+   "outbounds": [
+    "⛔ 禁止连接",
+    "🎯 本地直连"
+   ]
+  },
+  {
+   "tag": "⛔ 禁止连接",
+   "type": "block"
+  },
+  {
+   "tag": "🎯 本地直连",
+   "type": "direct"
+  },
+  {
+   "tag": "🐟 漏网之鱼",
+   "type": "selector",
+   "outbounds": [
+    "🚀 节点选择",
+    "🎯 本地直连"
+   ]
+  },
+  {
+   "tag": "GLOBAL",
+   "type": "selector",
+   "outbounds": [
+    "🚀 节点选择",
+    "🎯 本地直连"
+   ]
+  },
+  {
+   "tag": "🇭🇰 香港节点",
+   "type": "urltest",
+   "interval": "2m",
+   "use_all_providers": true,
+   "include": "(?i)(🇭🇰|港|hk|hongkong)"
+  },
+  {
+   "tag": "🇺🇸 美国节点",
+   "type": "urltest",
+   "interval": "2m",
+   "use_all_providers": true,
+   "include": "(?i)(🇺🇸|美|us|united)"
+  },
+  {
+   "tag": "🇯🇵 日本节点",
+   "type": "urltest",
+   "interval": "2m",
+   "use_all_providers": true,
+   "include": "(?i)(🇯🇵|日|jp|japan)"
+  },
+  {
+   "tag": "🇸🇬 新加坡节点",
+   "type": "urltest",
+   "interval": "2m",
+   "use_all_providers": true,
+   "include": "(?i)(🇸🇬|新加坡|sg|singapore)"
+  },
+  {
+   "tag": "🇹🇼 台湾节点",
+   "type": "urltest",
+   "interval": "2m",
+   "use_all_providers": true,
+   "include": "(?i)(🇹🇼|台|tw|taiwan)"
+  },
+  {
+   "tag": "🇰🇷 韩国节点",
+   "type": "urltest",
+   "interval": "2m",
+   "use_all_providers": true,
+   "include": "(?i)(🇰🇷|韩|kr|korea)"
+  }
+ ],
+ "route": {
+  "rules": [
+   {
+    "action": "sniff"
+   },
+   {
+    "protocol": "dns",
+    "action": "hijack-dns"
+   },
+   {
+    "ip_is_private": true,
+    "outbound": "🎯 本地直连"
+   },
+   {
+    "protocol": "quic",
+    "action": "reject",
+    "no_drop": true
+   },
+   {
+    "protocol": "bittorrent",
+    "action": "reject"
+   },
+   {
+    "rule_set": [
+     "cn",
+     "cnip",
+     "cn-chnroutes",
+     "cn-apple",
+     "cn-google",
+     "cm_China",
+     "cm_ChinaIPs",
+     "cm_ChinaDIRECT",
+     "cm_Apple",
+     "cm_Microsoft",
+     "ss_12306",
+     "ss_AirChina",
+     "ss_Alibaba",
+     "ss_AmazonIP",
+     "ss_Baidu",
+     "ss_BaiduCloud",
+     "ss_BiliBili",
+     "ss_BiliBiliIntl",
+     "ss_China",
+     "ss_ChinaDNS",
+     "ss_ChinaIPs",
+     "ss_ChinaIPsBGP",
+     "ss_ChinaMax",
+     "ss_ChinaMaxNoIP",
+     "ss_ChinaMaxNoMedia",
+     "ss_ChinaMedia",
+     "ss_ChinaMobile",
+     "ss_ChinaNews",
+     "ss_ChinaNoMedia",
+     "ss_ChinaTelecom",
+     "ss_ChinaTest",
+     "ss_ChinaUnicom",
+     "ss_ClubhouseIP",
+     "ss_DingTalk",
+     "ss_Gitee",
+     "ss_Huawei",
+     "ss_HuaweiCloud",
+     "ss_IPTVMainland",
+     "ss_IPTVOther",
+     "ss_JianShu",
+     "ss_JingDong",
+     "ss_JingDongCloud",
+     "ss_KuaiShou",
+     "ss_MIUIPrivacy",
+     "ss_Migu",
+     "ss_NetEase",
+     "ss_NetEaseMusic",
+     "ss_Sina",
+     "ss_Tencent",
+     "ss_TencentCloud",
+     "ss_TencentVideo",
+     "ss_Weibo",
+     "ss_Zhihu",
+     "ss_ZhihuAds"
+    ],
+    "outbound": "🀄️ 国内流量"
+   },
+   {
+    "rule_set": [
+     "ads",
+     "ss_AdColony",
+     "ss_AdGuardSDNSFilter",
+     "ss_AddToAny",
+     "ss_Addthis",
+     "ss_Adidas",
+     "ss_Adobe",
+     "ss_AdobeActivation",
+     "ss_Advertising",
+     "ss_AdvertisingLite",
+     "ss_AdvertisingMiTV",
+     "ss_AdvertisingTest",
+     "ss_PrivateTracker"
+    ],
+    "outbound": "🛑 广告拦截"
+   },
+   {
+    "rule_set": [
+     "ss_Netflix",
+     "ss_PrimeVideo",
+     "ss_HBO",
+     "ss_Hulu",
+     "ss_AppleTV",
+     "cm_Netflix"
+    ],
+    "outbound": "🎬 奈飞视频"
+   },
+   {
+    "rule_set": [
+     "ss_YouTube",
+     "cm_Google"
+    ],
+    "outbound": "▶️ 油管视频"
+   },
+   {
+    "rule_set": [
+     "ss_Disney",
+     "ss_TikTok",
+     "ss_Twitch",
+     "ss_Spotify",
+     "ss_AmazonPrimeVideo",
+     "ss_AppleTV",
+     "ss_Dailymotion",
+     "ss_Deezer",
+     "ss_Disney",
+     "ss_HBO",
+     "ss_HBOAsia",
+     "ss_HBOHK",
+     "ss_HBOUSA",
+     "ss_Hulu",
+     "ss_HuluJP",
+     "ss_HuluUSA",
+     "ss_Netflix",
+     "ss_Pandora",
+     "ss_PandoraTV",
+     "ss_Peacock",
+     "ss_PrimeVideo",
+     "ss_SoundCloud",
+     "ss_Spotify",
+     "ss_TikTok",
+     "ss_Twitch",
+     "ss_Vimeo",
+     "ss_YouTube",
+     "ss_YouTubeMusic"
+    ],
+    "outbound": "🌍 国际媒体"
+   },
+   {
+    "rule_set": [
+     "ss_OpenAI",
+     "ss_Anthropic",
+     "ss_Gemini",
+     "ss_Copilot",
+     "cm_AI",
+     "cm_ChatAI",
+     "ss_Anthropic",
+     "ss_BardAI",
+     "ss_Claude",
+     "ss_Copilot",
+     "ss_Gemini",
+     "ss_OpenAI"
+    ],
+    "outbound": "🤖 AI 平台"
+   },
+   {
+    "rule_set": [
+     "ss_Steam"
+    ],
+    "outbound": "🦾 Steam平台"
+   },
+   {
+    "rule_set": [
+     "ss_Epic",
+     "ss_PlayStation",
+     "ss_Xbox",
+     "ss_Nintendo",
+     "ss_Riot",
+     "cm_Game",
+     "ss_2KGames",
+     "ss_Assassin'sCreed-Origins",
+     "ss_Battle",
+     "ss_Blizzard",
+     "ss_EA",
+     "ss_Epic",
+     "ss_IKEA",
+     "ss_Nintendo",
+     "ss_Origin",
+     "ss_PlayStation",
+     "ss_Riot",
+     "ss_Rockstar",
+     "ss_Steam",
+     "ss_SteamCN",
+     "ss_Ubisoft",
+     "ss_Xbox"
+    ],
+    "outbound": "🎮 外服游戏"
+   },
+   {
+    "rule_set": [
+     "GFW",
+     "cn-gfw",
+     "cm_Paypal",
+     "ss_115",
+     "ss_1337x",
+     "ss_17173",
+     "ss_178",
+     "ss_17zuoye",
+     "ss_360",
+     "ss_360Cloud",
+     "ss_36kr",
+     "ss_3Type",
+     "ss_3dm",
+     "ss_4399",
+     "ss_4Paradigm",
+     "ss_4chan",
+     "ss_51Job",
+     "ss_51nod",
+     "ss_56",
+     "ss_58TongCheng",
+     "ss_6JianFang",
+     "ss_6park",
+     "ss_8btc",
+     "ss_9News",
+     "ss_9to5",
+     "ss_ABC",
+     "ss_AFP",
+     "ss_ALJazeera",
+     "ss_AMD",
+     "ss_AMP",
+     "ss_AOL",
+     "ss_APKCombo",
+     "ss_ATTWatchTV",
+     "ss_Abema",
+     "ss_AbemaTV",
+     "ss_AcFun",
+     "ss_Accuweather",
+     "ss_Acer",
+     "ss_Acplay",
+     "ss_Actalis",
+     "ss_Aerogard",
+     "ss_Afdian",
+     "ss_Agora",
+     "ss_AiQiCha",
+     "ss_AirWick",
+     "ss_Akamai",
+     "ss_AkamaiCloud",
+     "ss_Ali213",
+     "ss_AliPay",
+     "ss_All4",
+     "ss_Amazon",
+     "ss_AmazonCN",
+     "ss_AmazonCloud",
+     "ss_AmazonTrust",
+     "ss_Americasvoice",
+     "ss_AnTianKeJi",
+     "ss_Anaconda",
+     "ss_AnandTech",
+     "ss_Android",
+     "ss_Anime",
+     "ss_Anjuke",
+     "ss_Anonv",
+     "ss_Antutu",
+     "ss_Apifox",
+     "ss_Apkpure",
+     "ss_AppLovin",
+     "ss_AppStore",
+     "ss_Apple",
+     "ss_AppleDaily",
+     "ss_AppleDev",
+     "ss_AppleFirmware",
+     "ss_AppleHardware",
+     "ss_AppleID",
+     "ss_AppleMail",
+     "ss_AppleMedia",
+     "ss_AppleMusic",
+     "ss_AppleNews",
+     "ss_AppleProxy",
+     "ss_Arphic",
+     "ss_Asahi",
+     "ss_AsianMedia",
+     "ss_Assassin'sCreed-Odyssey",
+     "ss_Atlassian",
+     "ss_Atomdata",
+     "ss_BBC",
+     "ss_BMW",
+     "ss_BOC",
+     "ss_BOCOM",
+     "ss_Bahamut",
+     "ss_BaiDuTieBa",
+     "ss_BaiFenDian",
+     "ss_BaiShanYunKeJi",
+     "ss_BaoFengYingYin",
+     "ss_BeStore",
+     "ss_Beats",
+     "ss_BesTV",
+     "ss_Bestbuy",
+     "ss_BianFeng",
+     "ss_Binance",
+     "ss_Bing",
+     "ss_BlockHttpDNS",
+     "ss_Bloomberg",
+     "ss_Blued",
+     "ss_BoXun",
+     "ss_Bootcss",
+     "ss_BrightCove",
+     "ss_BritboxUK",
+     "ss_Buypass",
+     "ss_ByteDance",
+     "ss_CAS",
+     "ss_CBS",
+     "ss_CCB",
+     "ss_CCTV",
+     "ss_CEB",
+     "ss_CETV",
+     "ss_CHT",
+     "ss_CIBN",
+     "ss_CKJR",
+     "ss_CMB",
+     "ss_CNKI",
+     "ss_CNN",
+     "ss_CNNIC",
+     "ss_CSDN",
+     "ss_CWSeed",
+     "ss_CableTV",
+     "ss_CaiNiao",
+     "ss_CaiXinChuanMei",
+     "ss_Cake",
+     "ss_Camera360",
+     "ss_Canon",
+     "ss_ChengTongWangPan",
+     "ss_Chromecast",
+     "ss_ChuangKeTie",
+     "ss_ChunYou",
+     "ss_Cisco",
+     "ss_Civitai",
+     "ss_Classic",
+     "ss_CloudCN",
+     "ss_CloudGlobal",
+     "ss_Cloudflare",
+     "ss_Cloudflarecn",
+     "ss_Clubhouse",
+     "ss_Cnet",
+     "ss_Collabora",
+     "ss_Comodo",
+     "ss_Contentful",
+     "ss_Coolapk",
+     "ss_Crypto",
+     "ss_Cryptocurrency",
+     "ss_CyberTrust",
+     "ss_DAZN",
+     "ss_DMM",
+     "ss_DNS",
+     "ss_DaMai",
+     "ss_Dailymail",
+     "ss_DanDanZan",
+     "ss_Dandanplay",
+     "ss_DangDang",
+     "ss_Dedao",
+     "ss_Deepin",
+     "ss_Dell",
+     "ss_Developer",
+     "ss_DiDi",
+     "ss_DiLianWangLuo",
+     "ss_DiSiFanShi",
+     "ss_DiabloIII",
+     "ss_DianCeWangKe",
+     "ss_DigiCert",
+     "ss_DigitalOcean",
+     "ss_DingXiangYuan",
+     "ss_Direct",
+     "ss_Discord",
+     "ss_DiscoveryPlus",
+     "ss_Disqus",
+     "ss_Docker",
+     "ss_Domob",
+     "ss_Dood",
+     "ss_DouBan",
+     "ss_DouYin",
+     "ss_Douyu",
+     "ss_Download",
+     "ss_Dropbox",
+     "ss_DtDNS",
+     "ss_Dubox",
+     "ss_Duckduckgo",
+     "ss_DuoWan",
+     "ss_Duolingo",
+     "ss_DynDNS",
+     "ss_Dynu",
+     "ss_EHGallery",
+     "ss_EastMoney",
+     "ss_EasyPrivacy",
+     "ss_Electron",
+     "ss_Eleme",
+     "ss_Embl",
+     "ss_Emby",
+     "ss_Emojipedia",
+     "ss_EncoreTVB",
+     "ss_Entrust",
+     "ss_Espn",
+     "ss_FOXNOW",
+     "ss_FOXPlus",
+     "ss_Facebook",
+     "ss_FanFou",
+     "ss_FangZhengDianZi",
+     "ss_Faronics",
+     "ss_FeiZhu",
+     "ss_FengHuangWang",
+     "ss_FengXiaWangLuo",
+     "ss_Figma",
+     "ss_Fiio",
+     "ss_FindMy",
+     "ss_FitnessPlus",
+     "ss_FlipBoard",
+     "ss_Flurry",
+     "ss_Fox",
+     "ss_FreeCodeCamp",
+     "ss_FuboTV",
+     "ss_Funshion",
+     "ss_Game",
+     "ss_GaoDe",
+     "ss_Garena",
+     "ss_Geely",
+     "ss_Gettyimages",
+     "ss_Gigabyte",
+     "ss_GitBook",
+     "ss_GitHub",
+     "ss_GitLab",
+     "ss_Global",
+     "ss_GlobalMedia",
+     "ss_GlobalScholar",
+     "ss_GlobalSign",
+     "ss_Gog",
+     "ss_Google",
+     "ss_GoogleDrive",
+     "ss_GoogleEarth",
+     "ss_GoogleFCM",
+     "ss_GoogleSearch",
+     "ss_GoogleVoice",
+     "ss_GovCN",
+     "ss_Gucci",
+     "ss_GuiGuDongLi",
+     "ss_HKBN",
+     "ss_HKOpenTV",
+     "ss_HKedcity",
+     "ss_HP",
+     "ss_HWTV",
+     "ss_HaiNanHangKong",
+     "ss_HamiVideo",
+     "ss_HanYi",
+     "ss_HashiCorp",
+     "ss_Haveibeenpwned",
+     "ss_HeMa",
+     "ss_Hearthstone",
+     "ss_HeroesoftheStorm",
+     "ss_Heroku",
+     "ss_HiNet",
+     "ss_HibyMusic",
+     "ss_Hijacking",
+     "ss_Himalaya",
+     "ss_Hkgolden",
+     "ss_HoYoverse",
+     "ss_Hpplay",
+     "ss_HuYa",
+     "ss_HuaShuTV",
+     "ss_HuanJu",
+     "ss_Huffpost",
+     "ss_HunanTV",
+     "ss_Hupu",
+     "ss_IBM",
+     "ss_ICBC",
+     "ss_IMDB",
+     "ss_ITV",
+     "ss_Identrust",
+     "ss_Imgur",
+     "ss_Instagram",
+     "ss_Intel",
+     "ss_Intercom",
+     "ss_JOOX",
+     "ss_Japonx",
+     "ss_Jetbrains",
+     "ss_Jfrog",
+     "ss_JiGuangTuiSong",
+     "ss_JianGuoYun",
+     "ss_JinJiangWenXue",
+     "ss_Jquery",
+     "ss_Jsdelivr",
+     "ss_JueJin",
+     "ss_Jwplayer",
+     "ss_KKBOX",
+     "ss_KKTV",
+     "ss_KakaoTalk",
+     "ss_Kantv",
+     "ss_Keep",
+     "ss_KingSmith",
+     "ss_Kingsoft",
+     "ss_KingsoftCloud",
+     "ss_KouDaiShiShang",
+     "ss_Ku6",
+     "ss_KuKeMusic",
+     "ss_KuaiDi100",
+     "ss_KuangShi",
+     "ss_KugouKuwo",
+     "ss_LG",
+     "ss_Lan",
+     "ss_LanZouYun",
+     "ss_LastFM",
+     "ss_LastPass",
+     "ss_LeJu",
+     "ss_LeTV",
+     "ss_Lenovo",
+     "ss_LiTV",
+     "ss_LianMeng",
+     "ss_Limelight",
+     "ss_Line",
+     "ss_LineTV",
+     "ss_Linguee",
+     "ss_LinkedIn",
+     "ss_Linux",
+     "ss_LivePerson",
+     "ss_Logitech",
+     "ss_LondonReal",
+     "ss_LuDaShi",
+     "ss_LvMiLianChuang",
+     "ss_MEGA",
+     "ss_MOMOShop",
+     "ss_MOOV",
+     "ss_Mail",
+     "ss_Mailru",
+     "ss_Majsoul",
+     "ss_Manorama",
+     "ss_Maocloud",
+     "ss_Marketing",
+     "ss_McDonalds",
+     "ss_MeWatch",
+     "ss_MeiTu",
+     "ss_MeiTuan",
+     "ss_MeiZu",
+     "ss_MiWu",
+     "ss_Microsoft",
+     "ss_MicrosoftEdge",
+     "ss_MingLueZhaoHui",
+     "ss_Mogujie",
+     "ss_Mojitianqi",
+     "ss_Movefree",
+     "ss_Mozilla",
+     "ss_My5",
+     "ss_NBC",
+     "ss_NGA",
+     "ss_NGAA",
+     "ss_NTPService",
+     "ss_NYPost",
+     "ss_NYTimes",
+     "ss_NaSDDNS",
+     "ss_Naver",
+     "ss_NaverTV",
+     "ss_NeteaseCloud",
+     "ss_Niconico",
+     "ss_Nike",
+     "ss_Nikkei",
+     "ss_NivodTV",
+     "ss_Notion",
+     "ss_NowE",
+     "ss_Npmjs",
+     "ss_Nvidia",
+     "ss_OKX",
+     "ss_OP",
+     "ss_OPPO",
+     "ss_Olevod",
+     "ss_OneDrive",
+     "ss_OnePlus",
+     "ss_Opera",
+     "ss_Oracle",
+     "ss_Oreilly",
+     "ss_OuPeng",
+     "ss_Overcast",
+     "ss_Overwatch",
+     "ss_PBS",
+     "ss_PCCW",
+     "ss_PChome",
+     "ss_PChomeTW",
+     "ss_PPTV",
+     "ss_PSBC",
+     "ss_ParamountPlus",
+     "ss_Patreon",
+     "ss_PayPal",
+     "ss_Picacg",
+     "ss_Picsee",
+     "ss_PikPak",
+     "ss_Pinduoduo",
+     "ss_PingAn",
+     "ss_Pinterest",
+     "ss_Pixiv",
+     "ss_Pixnet",
+     "ss_PotatoChat",
+     "ss_Privacy",
+     "ss_Protonmail",
+     "ss_Proxy",
+     "ss_ProxyLite",
+     "ss_Pubmatic",
+     "ss_Purikonejp",
+     "ss_Python",
+     "ss_QiNiuYun",
+     "ss_QingCloud",
+     "ss_Qobuz",
+     "ss_Qualcomm",
+     "ss_QuickConnect",
+     "ss_Qyyjt",
+     "ss_RTHK",
+     "ss_Rakuten",
+     "ss_Rarbg",
+     "ss_Razer",
+     "ss_Reabble",
+     "ss_Reddit",
+     "ss_RemoteDesktop",
+     "ss_RuanMei",
+     "ss_SFExpress",
+     "ss_SMG",
+     "ss_SMZDM",
+     "ss_STUN",
+     "ss_Salesforce",
+     "ss_Samsung",
+     "ss_Scaleflex",
+     "ss_Scholar",
+     "ss_Sectigo",
+     "ss_ShangHaiJuXiao",
+     "ss_Shanling",
+     "ss_Sharethis",
+     "ss_ShenMa",
+     "ss_ShiJiChaoXing",
+     "ss_ShiNongZhiKe",
+     "ss_Shopee",
+     "ss_Shopify",
+     "ss_Siri",
+     "ss_SkyGO",
+     "ss_Slack",
+     "ss_SlideShare",
+     "ss_Sling",
+     "ss_SmarTone",
+     "ss_Snap",
+     "ss_Sohu",
+     "ss_Sony",
+     "ss_SouFang",
+     "ss_SourceForge",
+     "ss_Spark",
+     "ss_Speedtest",
+     "ss_Stackexchange",
+     "ss_StarCraftII",
+     "ss_Starbucks",
+     "ss_Stripe",
+     "ss_SuNing",
+     "ss_SublimeText",
+     "ss_SuiShiChuanMei",
+     "ss_Supercell",
+     "ss_Synology",
+     "ss_SystemOTA",
+     "ss_TCL",
+     "ss_TIDAL",
+     "ss_TVB",
+     "ss_TVer",
+     "ss_TaiKang",
+     "ss_TaiWanGood",
+     "ss_TaiheMusic",
+     "ss_TapTap",
+     "ss_TeamViewer",
+     "ss_Teambition",
+     "ss_Teams",
+     "ss_Telegram",
+     "ss_TelegramNL",
+     "ss_TelegramSG",
+     "ss_TelegramUS",
+     "ss_TeraBox",
+     "ss_Tesla",
+     "ss_TestFlight",
+     "ss_ThomsonReuters",
+     "ss_Threads",
+     "ss_TianTianKanKan",
+     "ss_TianWeiChengXin",
+     "ss_TianYaForum",
+     "ss_TigerFintech",
+     "ss_Tmdb",
+     "ss_TongCheng",
+     "ss_TrustWave",
+     "ss_TruthSocial",
+     "ss_Tumblr",
+     "ss_Twitter",
+     "ss_U17",
+     "ss_UBI",
+     "ss_UC",
+     "ss_UCloud",
+     "ss_UKMedia",
+     "ss_UPYun",
+     "ss_USMedia",
+     "ss_Ubuntu",
+     "ss_Udacity",
+     "ss_UnionPay",
+     "ss_Unity",
+     "ss_VISA",
+     "ss_VK",
+     "ss_VOA",
+     "ss_Vancl",
+     "ss_Vercel",
+     "ss_Verisign",
+     "ss_Verizon",
+     "ss_VidolTV",
+     "ss_VikACG",
+     "ss_Viki",
+     "ss_VipShop",
+     "ss_ViuTV",
+     "ss_Vivo",
+     "ss_Voxmedia",
+     "ss_W3schools",
+     "ss_WIX",
+     "ss_WanKaHuanJu",
+     "ss_WanMeiShiJie",
+     "ss_Wanfang",
+     "ss_WangSuKeJi",
+     "ss_WangXinKeJi",
+     "ss_WeChat",
+     "ss_WeTV",
+     "ss_WeType",
+     "ss_WeiZhiYunDong",
+     "ss_WenJuanXing",
+     "ss_Westerndigital",
+     "ss_Whatsapp",
+     "ss_WiFiMaster",
+     "ss_Wikimedia",
+     "ss_Wikipedia",
+     "ss_WildRift",
+     "ss_WoLai",
+     "ss_Wordpress",
+     "ss_WorldofWarcraft",
+     "ss_Wteam",
+     "ss_XiamiMusic",
+     "ss_XianYu",
+     "ss_XiaoGouKeJi",
+     "ss_XiaoHongShu",
+     "ss_XiaoMi",
+     "ss_XiaoYuanKeJi",
+     "ss_XieCheng",
+     "ss_XingKongWuXian",
+     "ss_XueErSi",
+     "ss_XueQiu",
+     "ss_Xunlei",
+     "ss_YYeTs",
+     "ss_Yandex",
+     "ss_YiChe",
+     "ss_YiXiaKeJi",
+     "ss_YiZhiBo",
+     "ss_YouMengChuangXiang",
+     "ss_YouZan",
+     "ss_Youku",
+     "ss_YuanFuDao",
+     "ss_YunFanJiaSu",
+     "ss_ZDNS",
+     "ss_Zalo",
+     "ss_Zee",
+     "ss_ZeeTV",
+     "ss_Zendesk",
+     "ss_ZhangYue",
+     "ss_ZhiYinManKe",
+     "ss_ZhiYunZhong",
+     "ss_ZhongGuoShiHua",
+     "ss_ZhongWeiShiJi",
+     "ss_ZhongXingTongXun",
+     "ss_ZhongYuanYiShang",
+     "ss_ZhuanZhuan",
+     "ss_Zoho",
+     "ss_aiXcoder",
+     "ss_eBay",
+     "ss_friDay",
+     "ss_iCloud",
+     "ss_iCloudPrivateRelay",
+     "ss_iFlytek",
+     "ss_iQIYI",
+     "ss_iQIYIIntl",
+     "ss_iTalkBB",
+     "ss_ifanr",
+     "ss_myTVSUPER",
+     "ss_zhanqi"
+    ],
+    "outbound": "🚀 节点选择"
+   },
+   {
+    "outbound": "🐟 漏网之鱼"
+   }
+  ],
+  "rule_set": [
+   {
+    "tag": "ss_115",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_115.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/115/115.srs"
+   },
+   {
+    "tag": "ss_12306",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_12306.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/12306/12306.srs"
+   },
+   {
+    "tag": "ss_1337x",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_1337x.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/1337x/1337x.srs"
+   },
+   {
+    "tag": "ss_17173",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_17173.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/17173/17173.srs"
+   },
+   {
+    "tag": "ss_178",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_178.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/178/178.srs"
+   },
+   {
+    "tag": "ss_17zuoye",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_17zuoye.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/17zuoye/17zuoye.srs"
+   },
+   {
+    "tag": "ss_2KGames",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_2KGames.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/2KGames/2KGames.srs"
+   },
+   {
+    "tag": "ss_360",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_360.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/360/360.srs"
+   },
+   {
+    "tag": "ss_360Cloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_360Cloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/360Cloud/360Cloud.srs"
+   },
+   {
+    "tag": "ss_36kr",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_36kr.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/36kr/36kr.srs"
+   },
+   {
+    "tag": "ss_3Type",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_3Type.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/3Type/3Type.srs"
+   },
+   {
+    "tag": "ss_3dm",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_3dm.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/3dm/3dm.srs"
+   },
+   {
+    "tag": "ss_4399",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_4399.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/4399/4399.srs"
+   },
+   {
+    "tag": "ss_4Paradigm",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_4Paradigm.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/4Paradigm/4Paradigm.srs"
+   },
+   {
+    "tag": "ss_4chan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_4chan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/4chan/4chan.srs"
+   },
+   {
+    "tag": "ss_51Job",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_51Job.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/51Job/51Job.srs"
+   },
+   {
+    "tag": "ss_51nod",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_51nod.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/51nod/51nod.srs"
+   },
+   {
+    "tag": "ss_56",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_56.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/56/56.srs"
+   },
+   {
+    "tag": "ss_58TongCheng",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_58TongCheng.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/58TongCheng/58TongCheng.srs"
+   },
+   {
+    "tag": "ss_6JianFang",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_6JianFang.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/6JianFang/6JianFang.srs"
+   },
+   {
+    "tag": "ss_6park",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_6park.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/6park/6park.srs"
+   },
+   {
+    "tag": "ss_8btc",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_8btc.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/8btc/8btc.srs"
+   },
+   {
+    "tag": "ss_9News",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_9News.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/9News/9News.srs"
+   },
+   {
+    "tag": "ss_9to5",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_9to5.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/9to5/9to5.srs"
+   },
+   {
+    "tag": "ss_ABC",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ABC.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ABC/ABC.srs"
+   },
+   {
+    "tag": "ss_AFP",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AFP.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AFP/AFP.srs"
+   },
+   {
+    "tag": "ss_ALJazeera",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ALJazeera.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ALJazeera/ALJazeera.srs"
+   },
+   {
+    "tag": "ss_AMD",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AMD.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AMD/AMD.srs"
+   },
+   {
+    "tag": "ss_AMP",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AMP.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AMP/AMP.srs"
+   },
+   {
+    "tag": "ss_AOL",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AOL.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AOL/AOL.srs"
+   },
+   {
+    "tag": "ss_APKCombo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_APKCombo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/APKCombo/APKCombo.srs"
+   },
+   {
+    "tag": "ss_ATTWatchTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ATTWatchTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ATTWatchTV/ATTWatchTV.srs"
+   },
+   {
+    "tag": "ss_Abema",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Abema.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Abema/Abema.srs"
+   },
+   {
+    "tag": "ss_AbemaTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AbemaTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AbemaTV/AbemaTV.srs"
+   },
+   {
+    "tag": "ss_AcFun",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AcFun.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AcFun/AcFun.srs"
+   },
+   {
+    "tag": "ss_Accuweather",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Accuweather.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Accuweather/Accuweather.srs"
+   },
+   {
+    "tag": "ss_Acer",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Acer.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Acer/Acer.srs"
+   },
+   {
+    "tag": "ss_Acplay",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Acplay.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Acplay/Acplay.srs"
+   },
+   {
+    "tag": "ss_Actalis",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Actalis.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Actalis/Actalis.srs"
+   },
+   {
+    "tag": "ss_AdColony",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AdColony.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AdColony/AdColony.srs"
+   },
+   {
+    "tag": "ss_AdGuardSDNSFilter",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AdGuardSDNSFilter.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AdGuardSDNSFilter/AdGuardSDNSFilter.srs"
+   },
+   {
+    "tag": "ss_AddToAny",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AddToAny.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AddToAny/AddToAny.srs"
+   },
+   {
+    "tag": "ss_Addthis",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Addthis.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Addthis/Addthis.srs"
+   },
+   {
+    "tag": "ss_Adidas",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Adidas.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Adidas/Adidas.srs"
+   },
+   {
+    "tag": "ss_Adobe",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Adobe.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Adobe/Adobe.srs"
+   },
+   {
+    "tag": "ss_AdobeActivation",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AdobeActivation.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AdobeActivation/AdobeActivation.srs"
+   },
+   {
+    "tag": "ss_Advertising",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Advertising.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Advertising/Advertising.srs"
+   },
+   {
+    "tag": "ss_AdvertisingLite",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AdvertisingLite.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AdvertisingLite/AdvertisingLite.srs"
+   },
+   {
+    "tag": "ss_AdvertisingMiTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AdvertisingMiTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AdvertisingMiTV/AdvertisingMiTV.srs"
+   },
+   {
+    "tag": "ss_AdvertisingTest",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AdvertisingTest.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AdvertisingTest/AdvertisingTest.srs"
+   },
+   {
+    "tag": "ss_Aerogard",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Aerogard.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Aerogard/Aerogard.srs"
+   },
+   {
+    "tag": "ss_Afdian",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Afdian.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Afdian/Afdian.srs"
+   },
+   {
+    "tag": "ss_Agora",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Agora.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Agora/Agora.srs"
+   },
+   {
+    "tag": "ss_AiQiCha",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AiQiCha.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AiQiCha/AiQiCha.srs"
+   },
+   {
+    "tag": "ss_AirChina",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AirChina.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AirChina/AirChina.srs"
+   },
+   {
+    "tag": "ss_AirWick",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AirWick.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AirWick/AirWick.srs"
+   },
+   {
+    "tag": "ss_Akamai",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Akamai.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Akamai/Akamai.srs"
+   },
+   {
+    "tag": "ss_AkamaiCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AkamaiCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AkamaiCloud/AkamaiCloud.srs"
+   },
+   {
+    "tag": "ss_Ali213",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Ali213.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Ali213/Ali213.srs"
+   },
+   {
+    "tag": "ss_AliPay",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AliPay.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AliPay/AliPay.srs"
+   },
+   {
+    "tag": "ss_Alibaba",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Alibaba.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Alibaba/Alibaba.srs"
+   },
+   {
+    "tag": "ss_All4",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_All4.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/All4/All4.srs"
+   },
+   {
+    "tag": "ss_Amazon",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Amazon.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Amazon/Amazon.srs"
+   },
+   {
+    "tag": "ss_AmazonCN",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AmazonCN.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AmazonCN/AmazonCN.srs"
+   },
+   {
+    "tag": "ss_AmazonCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AmazonCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AmazonCloud/AmazonCloud.srs"
+   },
+   {
+    "tag": "ss_AmazonIP",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AmazonIP.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AmazonIP/AmazonIP.srs"
+   },
+   {
+    "tag": "ss_AmazonPrimeVideo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AmazonPrimeVideo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AmazonPrimeVideo/AmazonPrimeVideo.srs"
+   },
+   {
+    "tag": "ss_AmazonTrust",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AmazonTrust.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AmazonTrust/AmazonTrust.srs"
+   },
+   {
+    "tag": "ss_Americasvoice",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Americasvoice.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Americasvoice/Americasvoice.srs"
+   },
+   {
+    "tag": "ss_AnTianKeJi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AnTianKeJi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AnTianKeJi/AnTianKeJi.srs"
+   },
+   {
+    "tag": "ss_Anaconda",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Anaconda.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Anaconda/Anaconda.srs"
+   },
+   {
+    "tag": "ss_AnandTech",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AnandTech.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AnandTech/AnandTech.srs"
+   },
+   {
+    "tag": "ss_Android",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Android.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Android/Android.srs"
+   },
+   {
+    "tag": "ss_Anime",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Anime.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Anime/Anime.srs"
+   },
+   {
+    "tag": "ss_Anjuke",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Anjuke.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Anjuke/Anjuke.srs"
+   },
+   {
+    "tag": "ss_Anonv",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Anonv.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Anonv/Anonv.srs"
+   },
+   {
+    "tag": "ss_Anthropic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Anthropic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Anthropic/Anthropic.srs"
+   },
+   {
+    "tag": "ss_Antutu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Antutu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Antutu/Antutu.srs"
+   },
+   {
+    "tag": "ss_Apifox",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Apifox.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Apifox/Apifox.srs"
+   },
+   {
+    "tag": "ss_Apkpure",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Apkpure.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Apkpure/Apkpure.srs"
+   },
+   {
+    "tag": "ss_AppLovin",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppLovin.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppLovin/AppLovin.srs"
+   },
+   {
+    "tag": "ss_AppStore",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppStore.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppStore/AppStore.srs"
+   },
+   {
+    "tag": "ss_Apple",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Apple.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Apple/Apple.srs"
+   },
+   {
+    "tag": "ss_AppleDaily",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleDaily.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleDaily/AppleDaily.srs"
+   },
+   {
+    "tag": "ss_AppleDev",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleDev.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleDev/AppleDev.srs"
+   },
+   {
+    "tag": "ss_AppleFirmware",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleFirmware.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleFirmware/AppleFirmware.srs"
+   },
+   {
+    "tag": "ss_AppleHardware",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleHardware.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleHardware/AppleHardware.srs"
+   },
+   {
+    "tag": "ss_AppleID",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleID.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleID/AppleID.srs"
+   },
+   {
+    "tag": "ss_AppleMail",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleMail.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleMail/AppleMail.srs"
+   },
+   {
+    "tag": "ss_AppleMedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleMedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleMedia/AppleMedia.srs"
+   },
+   {
+    "tag": "ss_AppleMusic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleMusic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleMusic/AppleMusic.srs"
+   },
+   {
+    "tag": "ss_AppleNews",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleNews.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleNews/AppleNews.srs"
+   },
+   {
+    "tag": "ss_AppleProxy",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleProxy.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleProxy/AppleProxy.srs"
+   },
+   {
+    "tag": "ss_AppleTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AppleTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AppleTV/AppleTV.srs"
+   },
+   {
+    "tag": "ss_Arphic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Arphic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Arphic/Arphic.srs"
+   },
+   {
+    "tag": "ss_Asahi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Asahi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Asahi/Asahi.srs"
+   },
+   {
+    "tag": "ss_AsianMedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_AsianMedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/AsianMedia/AsianMedia.srs"
+   },
+   {
+    "tag": "ss_Assassin'sCreed-Odyssey",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Assassin'sCreed-Odyssey.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Assassin'sCreed-Odyssey/Assassin'sCreed-Odyssey.srs"
+   },
+   {
+    "tag": "ss_Assassin'sCreed-Origins",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Assassin'sCreed-Origins.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Assassin'sCreed-Origins/Assassin'sCreed-Origins.srs"
+   },
+   {
+    "tag": "ss_Atlassian",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Atlassian.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Atlassian/Atlassian.srs"
+   },
+   {
+    "tag": "ss_Atomdata",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Atomdata.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Atomdata/Atomdata.srs"
+   },
+   {
+    "tag": "ss_BBC",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BBC.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BBC/BBC.srs"
+   },
+   {
+    "tag": "ss_BMW",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BMW.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BMW/BMW.srs"
+   },
+   {
+    "tag": "ss_BOC",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BOC.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BOC/BOC.srs"
+   },
+   {
+    "tag": "ss_BOCOM",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BOCOM.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BOCOM/BOCOM.srs"
+   },
+   {
+    "tag": "ss_Bahamut",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Bahamut.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Bahamut/Bahamut.srs"
+   },
+   {
+    "tag": "ss_BaiDuTieBa",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BaiDuTieBa.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BaiDuTieBa/BaiDuTieBa.srs"
+   },
+   {
+    "tag": "ss_BaiFenDian",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BaiFenDian.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BaiFenDian/BaiFenDian.srs"
+   },
+   {
+    "tag": "ss_BaiShanYunKeJi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BaiShanYunKeJi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BaiShanYunKeJi/BaiShanYunKeJi.srs"
+   },
+   {
+    "tag": "ss_Baidu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Baidu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Baidu/Baidu.srs"
+   },
+   {
+    "tag": "ss_BaiduCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BaiduCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BaiduCloud/BaiduCloud.srs"
+   },
+   {
+    "tag": "ss_BaoFengYingYin",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BaoFengYingYin.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BaoFengYingYin/BaoFengYingYin.srs"
+   },
+   {
+    "tag": "ss_BardAI",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BardAI.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BardAI/BardAI.srs"
+   },
+   {
+    "tag": "ss_Battle",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Battle.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Battle/Battle.srs"
+   },
+   {
+    "tag": "ss_BeStore",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BeStore.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BeStore/BeStore.srs"
+   },
+   {
+    "tag": "ss_Beats",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Beats.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Beats/Beats.srs"
+   },
+   {
+    "tag": "ss_BesTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BesTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BesTV/BesTV.srs"
+   },
+   {
+    "tag": "ss_Bestbuy",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Bestbuy.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Bestbuy/Bestbuy.srs"
+   },
+   {
+    "tag": "ss_BianFeng",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BianFeng.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BianFeng/BianFeng.srs"
+   },
+   {
+    "tag": "ss_BiliBili",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BiliBili.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BiliBili/BiliBili.srs"
+   },
+   {
+    "tag": "ss_BiliBiliIntl",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BiliBiliIntl.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BiliBiliIntl/BiliBiliIntl.srs"
+   },
+   {
+    "tag": "ss_Binance",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Binance.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Binance/Binance.srs"
+   },
+   {
+    "tag": "ss_Bing",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Bing.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Bing/Bing.srs"
+   },
+   {
+    "tag": "ss_Blizzard",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Blizzard.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Blizzard/Blizzard.srs"
+   },
+   {
+    "tag": "ss_BlockHttpDNS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BlockHttpDNS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BlockHttpDNS/BlockHttpDNS.srs"
+   },
+   {
+    "tag": "ss_Bloomberg",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Bloomberg.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Bloomberg/Bloomberg.srs"
+   },
+   {
+    "tag": "ss_Blued",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Blued.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Blued/Blued.srs"
+   },
+   {
+    "tag": "ss_BoXun",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BoXun.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BoXun/BoXun.srs"
+   },
+   {
+    "tag": "ss_Bootcss",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Bootcss.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Bootcss/Bootcss.srs"
+   },
+   {
+    "tag": "ss_BrightCove",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BrightCove.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BrightCove/BrightCove.srs"
+   },
+   {
+    "tag": "ss_BritboxUK",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_BritboxUK.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/BritboxUK/BritboxUK.srs"
+   },
+   {
+    "tag": "ss_Buypass",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Buypass.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Buypass/Buypass.srs"
+   },
+   {
+    "tag": "ss_ByteDance",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ByteDance.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ByteDance/ByteDance.srs"
+   },
+   {
+    "tag": "ss_CAS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CAS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CAS/CAS.srs"
+   },
+   {
+    "tag": "ss_CBS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CBS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CBS/CBS.srs"
+   },
+   {
+    "tag": "ss_CCB",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CCB.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CCB/CCB.srs"
+   },
+   {
+    "tag": "ss_CCTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CCTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CCTV/CCTV.srs"
+   },
+   {
+    "tag": "ss_CEB",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CEB.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CEB/CEB.srs"
+   },
+   {
+    "tag": "ss_CETV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CETV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CETV/CETV.srs"
+   },
+   {
+    "tag": "ss_CHT",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CHT.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CHT/CHT.srs"
+   },
+   {
+    "tag": "ss_CIBN",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CIBN.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CIBN/CIBN.srs"
+   },
+   {
+    "tag": "ss_CKJR",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CKJR.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CKJR/CKJR.srs"
+   },
+   {
+    "tag": "ss_CMB",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CMB.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CMB/CMB.srs"
+   },
+   {
+    "tag": "ss_CNKI",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CNKI.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CNKI/CNKI.srs"
+   },
+   {
+    "tag": "ss_CNN",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CNN.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CNN/CNN.srs"
+   },
+   {
+    "tag": "ss_CNNIC",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CNNIC.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CNNIC/CNNIC.srs"
+   },
+   {
+    "tag": "ss_CSDN",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CSDN.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CSDN/CSDN.srs"
+   },
+   {
+    "tag": "ss_CWSeed",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CWSeed.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CWSeed/CWSeed.srs"
+   },
+   {
+    "tag": "ss_CableTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CableTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CableTV/CableTV.srs"
+   },
+   {
+    "tag": "ss_CaiNiao",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CaiNiao.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CaiNiao/CaiNiao.srs"
+   },
+   {
+    "tag": "ss_CaiXinChuanMei",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CaiXinChuanMei.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CaiXinChuanMei/CaiXinChuanMei.srs"
+   },
+   {
+    "tag": "ss_Cake",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Cake.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Cake/Cake.srs"
+   },
+   {
+    "tag": "ss_Camera360",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Camera360.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Camera360/Camera360.srs"
+   },
+   {
+    "tag": "ss_Canon",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Canon.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Canon/Canon.srs"
+   },
+   {
+    "tag": "ss_ChengTongWangPan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChengTongWangPan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChengTongWangPan/ChengTongWangPan.srs"
+   },
+   {
+    "tag": "ss_China",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_China.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/China/China.srs"
+   },
+   {
+    "tag": "ss_ChinaDNS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaDNS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaDNS/ChinaDNS.srs"
+   },
+   {
+    "tag": "ss_ChinaIPs",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaIPs.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaIPs/ChinaIPs.srs"
+   },
+   {
+    "tag": "ss_ChinaIPsBGP",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaIPsBGP.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaIPsBGP/ChinaIPsBGP.srs"
+   },
+   {
+    "tag": "ss_ChinaMax",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaMax.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaMax/ChinaMax.srs"
+   },
+   {
+    "tag": "ss_ChinaMaxNoIP",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaMaxNoIP.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaMaxNoIP/ChinaMaxNoIP.srs"
+   },
+   {
+    "tag": "ss_ChinaMaxNoMedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaMaxNoMedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaMaxNoMedia/ChinaMaxNoMedia.srs"
+   },
+   {
+    "tag": "ss_ChinaMedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaMedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaMedia/ChinaMedia.srs"
+   },
+   {
+    "tag": "ss_ChinaMobile",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaMobile.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaMobile/ChinaMobile.srs"
+   },
+   {
+    "tag": "ss_ChinaNews",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaNews.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaNews/ChinaNews.srs"
+   },
+   {
+    "tag": "ss_ChinaNoMedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaNoMedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaNoMedia/ChinaNoMedia.srs"
+   },
+   {
+    "tag": "ss_ChinaTelecom",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaTelecom.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaTelecom/ChinaTelecom.srs"
+   },
+   {
+    "tag": "ss_ChinaTest",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaTest.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaTest/ChinaTest.srs"
+   },
+   {
+    "tag": "ss_ChinaUnicom",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChinaUnicom.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChinaUnicom/ChinaUnicom.srs"
+   },
+   {
+    "tag": "ss_Chromecast",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Chromecast.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Chromecast/Chromecast.srs"
+   },
+   {
+    "tag": "ss_ChuangKeTie",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChuangKeTie.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChuangKeTie/ChuangKeTie.srs"
+   },
+   {
+    "tag": "ss_ChunYou",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ChunYou.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ChunYou/ChunYou.srs"
+   },
+   {
+    "tag": "ss_Cisco",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Cisco.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Cisco/Cisco.srs"
+   },
+   {
+    "tag": "ss_Civitai",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Civitai.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Civitai/Civitai.srs"
+   },
+   {
+    "tag": "ss_Classic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Classic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Classic/Classic.srs"
+   },
+   {
+    "tag": "ss_Claude",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Claude.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Claude/Claude.srs"
+   },
+   {
+    "tag": "ss_CloudCN",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CloudCN.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CloudCN/CloudCN.srs"
+   },
+   {
+    "tag": "ss_CloudGlobal",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CloudGlobal.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CloudGlobal/CloudGlobal.srs"
+   },
+   {
+    "tag": "ss_Cloudflare",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Cloudflare.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Cloudflare/Cloudflare.srs"
+   },
+   {
+    "tag": "ss_Cloudflarecn",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Cloudflarecn.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Cloudflarecn/Cloudflarecn.srs"
+   },
+   {
+    "tag": "ss_Clubhouse",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Clubhouse.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Clubhouse/Clubhouse.srs"
+   },
+   {
+    "tag": "ss_ClubhouseIP",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ClubhouseIP.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ClubhouseIP/ClubhouseIP.srs"
+   },
+   {
+    "tag": "ss_Cnet",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Cnet.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Cnet/Cnet.srs"
+   },
+   {
+    "tag": "ss_Collabora",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Collabora.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Collabora/Collabora.srs"
+   },
+   {
+    "tag": "ss_Comodo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Comodo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Comodo/Comodo.srs"
+   },
+   {
+    "tag": "ss_Contentful",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Contentful.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Contentful/Contentful.srs"
+   },
+   {
+    "tag": "ss_Coolapk",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Coolapk.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Coolapk/Coolapk.srs"
+   },
+   {
+    "tag": "ss_Copilot",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Copilot.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Copilot/Copilot.srs"
+   },
+   {
+    "tag": "ss_Crypto",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Crypto.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Crypto/Crypto.srs"
+   },
+   {
+    "tag": "ss_Cryptocurrency",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Cryptocurrency.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Cryptocurrency/Cryptocurrency.srs"
+   },
+   {
+    "tag": "ss_CyberTrust",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_CyberTrust.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/CyberTrust/CyberTrust.srs"
+   },
+   {
+    "tag": "ss_DAZN",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DAZN.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DAZN/DAZN.srs"
+   },
+   {
+    "tag": "ss_DMM",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DMM.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DMM/DMM.srs"
+   },
+   {
+    "tag": "ss_DNS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DNS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DNS/DNS.srs"
+   },
+   {
+    "tag": "ss_DaMai",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DaMai.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DaMai/DaMai.srs"
+   },
+   {
+    "tag": "ss_Dailymail",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Dailymail.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Dailymail/Dailymail.srs"
+   },
+   {
+    "tag": "ss_Dailymotion",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Dailymotion.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Dailymotion/Dailymotion.srs"
+   },
+   {
+    "tag": "ss_DanDanZan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DanDanZan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DanDanZan/DanDanZan.srs"
+   },
+   {
+    "tag": "ss_Dandanplay",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Dandanplay.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Dandanplay/Dandanplay.srs"
+   },
+   {
+    "tag": "ss_DangDang",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DangDang.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DangDang/DangDang.srs"
+   },
+   {
+    "tag": "ss_Dedao",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Dedao.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Dedao/Dedao.srs"
+   },
+   {
+    "tag": "ss_Deepin",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Deepin.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Deepin/Deepin.srs"
+   },
+   {
+    "tag": "ss_Deezer",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Deezer.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Deezer/Deezer.srs"
+   },
+   {
+    "tag": "ss_Dell",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Dell.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Dell/Dell.srs"
+   },
+   {
+    "tag": "ss_Developer",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Developer.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Developer/Developer.srs"
+   },
+   {
+    "tag": "ss_DiDi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DiDi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DiDi/DiDi.srs"
+   },
+   {
+    "tag": "ss_DiLianWangLuo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DiLianWangLuo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DiLianWangLuo/DiLianWangLuo.srs"
+   },
+   {
+    "tag": "ss_DiSiFanShi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DiSiFanShi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DiSiFanShi/DiSiFanShi.srs"
+   },
+   {
+    "tag": "ss_DiabloIII",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DiabloIII.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DiabloIII/DiabloIII.srs"
+   },
+   {
+    "tag": "ss_DianCeWangKe",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DianCeWangKe.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DianCeWangKe/DianCeWangKe.srs"
+   },
+   {
+    "tag": "ss_DigiCert",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DigiCert.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DigiCert/DigiCert.srs"
+   },
+   {
+    "tag": "ss_DigitalOcean",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DigitalOcean.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DigitalOcean/DigitalOcean.srs"
+   },
+   {
+    "tag": "ss_DingTalk",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DingTalk.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DingTalk/DingTalk.srs"
+   },
+   {
+    "tag": "ss_DingXiangYuan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DingXiangYuan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DingXiangYuan/DingXiangYuan.srs"
+   },
+   {
+    "tag": "ss_Direct",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Direct.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Direct/Direct.srs"
+   },
+   {
+    "tag": "ss_Discord",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Discord.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Discord/Discord.srs"
+   },
+   {
+    "tag": "ss_DiscoveryPlus",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DiscoveryPlus.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DiscoveryPlus/DiscoveryPlus.srs"
+   },
+   {
+    "tag": "ss_Disney",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Disney.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Disney/Disney.srs"
+   },
+   {
+    "tag": "ss_Disqus",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Disqus.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Disqus/Disqus.srs"
+   },
+   {
+    "tag": "ss_Docker",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Docker.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Docker/Docker.srs"
+   },
+   {
+    "tag": "ss_Domob",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Domob.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Domob/Domob.srs"
+   },
+   {
+    "tag": "ss_Dood",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Dood.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Dood/Dood.srs"
+   },
+   {
+    "tag": "ss_DouBan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DouBan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DouBan/DouBan.srs"
+   },
+   {
+    "tag": "ss_DouYin",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DouYin.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DouYin/DouYin.srs"
+   },
+   {
+    "tag": "ss_Douyu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Douyu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Douyu/Douyu.srs"
+   },
+   {
+    "tag": "ss_Download",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Download.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Download/Download.srs"
+   },
+   {
+    "tag": "ss_Dropbox",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Dropbox.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Dropbox/Dropbox.srs"
+   },
+   {
+    "tag": "ss_DtDNS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DtDNS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DtDNS/DtDNS.srs"
+   },
+   {
+    "tag": "ss_Dubox",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Dubox.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Dubox/Dubox.srs"
+   },
+   {
+    "tag": "ss_Duckduckgo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Duckduckgo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Duckduckgo/Duckduckgo.srs"
+   },
+   {
+    "tag": "ss_DuoWan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DuoWan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DuoWan/DuoWan.srs"
+   },
+   {
+    "tag": "ss_Duolingo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Duolingo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Duolingo/Duolingo.srs"
+   },
+   {
+    "tag": "ss_DynDNS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_DynDNS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/DynDNS/DynDNS.srs"
+   },
+   {
+    "tag": "ss_Dynu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Dynu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Dynu/Dynu.srs"
+   },
+   {
+    "tag": "ss_EA",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_EA.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/EA/EA.srs"
+   },
+   {
+    "tag": "ss_EHGallery",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_EHGallery.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/EHGallery/EHGallery.srs"
+   },
+   {
+    "tag": "ss_EastMoney",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_EastMoney.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/EastMoney/EastMoney.srs"
+   },
+   {
+    "tag": "ss_EasyPrivacy",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_EasyPrivacy.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/EasyPrivacy/EasyPrivacy.srs"
+   },
+   {
+    "tag": "ss_Electron",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Electron.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Electron/Electron.srs"
+   },
+   {
+    "tag": "ss_Eleme",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Eleme.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Eleme/Eleme.srs"
+   },
+   {
+    "tag": "ss_Embl",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Embl.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Embl/Embl.srs"
+   },
+   {
+    "tag": "ss_Emby",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Emby.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Emby/Emby.srs"
+   },
+   {
+    "tag": "ss_Emojipedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Emojipedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Emojipedia/Emojipedia.srs"
+   },
+   {
+    "tag": "ss_EncoreTVB",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_EncoreTVB.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/EncoreTVB/EncoreTVB.srs"
+   },
+   {
+    "tag": "ss_Entrust",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Entrust.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Entrust/Entrust.srs"
+   },
+   {
+    "tag": "ss_Epic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Epic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Epic/Epic.srs"
+   },
+   {
+    "tag": "ss_Espn",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Espn.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Espn/Espn.srs"
+   },
+   {
+    "tag": "ss_FOXNOW",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FOXNOW.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FOXNOW/FOXNOW.srs"
+   },
+   {
+    "tag": "ss_FOXPlus",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FOXPlus.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FOXPlus/FOXPlus.srs"
+   },
+   {
+    "tag": "ss_Facebook",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Facebook.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Facebook/Facebook.srs"
+   },
+   {
+    "tag": "ss_FanFou",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FanFou.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FanFou/FanFou.srs"
+   },
+   {
+    "tag": "ss_FangZhengDianZi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FangZhengDianZi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FangZhengDianZi/FangZhengDianZi.srs"
+   },
+   {
+    "tag": "ss_Faronics",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Faronics.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Faronics/Faronics.srs"
+   },
+   {
+    "tag": "ss_FeiZhu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FeiZhu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FeiZhu/FeiZhu.srs"
+   },
+   {
+    "tag": "ss_FengHuangWang",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FengHuangWang.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FengHuangWang/FengHuangWang.srs"
+   },
+   {
+    "tag": "ss_FengXiaWangLuo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FengXiaWangLuo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FengXiaWangLuo/FengXiaWangLuo.srs"
+   },
+   {
+    "tag": "ss_Figma",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Figma.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Figma/Figma.srs"
+   },
+   {
+    "tag": "ss_Fiio",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Fiio.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Fiio/Fiio.srs"
+   },
+   {
+    "tag": "ss_FindMy",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FindMy.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FindMy/FindMy.srs"
+   },
+   {
+    "tag": "ss_FitnessPlus",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FitnessPlus.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FitnessPlus/FitnessPlus.srs"
+   },
+   {
+    "tag": "ss_FlipBoard",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FlipBoard.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FlipBoard/FlipBoard.srs"
+   },
+   {
+    "tag": "ss_Flurry",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Flurry.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Flurry/Flurry.srs"
+   },
+   {
+    "tag": "ss_Fox",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Fox.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Fox/Fox.srs"
+   },
+   {
+    "tag": "ss_FreeCodeCamp",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FreeCodeCamp.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FreeCodeCamp/FreeCodeCamp.srs"
+   },
+   {
+    "tag": "ss_FuboTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_FuboTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/FuboTV/FuboTV.srs"
+   },
+   {
+    "tag": "ss_Funshion",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Funshion.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Funshion/Funshion.srs"
+   },
+   {
+    "tag": "ss_Game",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Game.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Game/Game.srs"
+   },
+   {
+    "tag": "ss_GaoDe",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GaoDe.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GaoDe/GaoDe.srs"
+   },
+   {
+    "tag": "ss_Garena",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Garena.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Garena/Garena.srs"
+   },
+   {
+    "tag": "ss_Geely",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Geely.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Geely/Geely.srs"
+   },
+   {
+    "tag": "ss_Gemini",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Gemini.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Gemini/Gemini.srs"
+   },
+   {
+    "tag": "ss_Gettyimages",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Gettyimages.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Gettyimages/Gettyimages.srs"
+   },
+   {
+    "tag": "ss_Gigabyte",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Gigabyte.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Gigabyte/Gigabyte.srs"
+   },
+   {
+    "tag": "ss_GitBook",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GitBook.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GitBook/GitBook.srs"
+   },
+   {
+    "tag": "ss_GitHub",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GitHub.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GitHub/GitHub.srs"
+   },
+   {
+    "tag": "ss_GitLab",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GitLab.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GitLab/GitLab.srs"
+   },
+   {
+    "tag": "ss_Gitee",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Gitee.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Gitee/Gitee.srs"
+   },
+   {
+    "tag": "ss_Global",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Global.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Global/Global.srs"
+   },
+   {
+    "tag": "ss_GlobalMedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GlobalMedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GlobalMedia/GlobalMedia.srs"
+   },
+   {
+    "tag": "ss_GlobalScholar",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GlobalScholar.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GlobalScholar/GlobalScholar.srs"
+   },
+   {
+    "tag": "ss_GlobalSign",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GlobalSign.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GlobalSign/GlobalSign.srs"
+   },
+   {
+    "tag": "ss_Gog",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Gog.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Gog/Gog.srs"
+   },
+   {
+    "tag": "ss_Google",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Google.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Google/Google.srs"
+   },
+   {
+    "tag": "ss_GoogleDrive",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GoogleDrive.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GoogleDrive/GoogleDrive.srs"
+   },
+   {
+    "tag": "ss_GoogleEarth",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GoogleEarth.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GoogleEarth/GoogleEarth.srs"
+   },
+   {
+    "tag": "ss_GoogleFCM",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GoogleFCM.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GoogleFCM/GoogleFCM.srs"
+   },
+   {
+    "tag": "ss_GoogleSearch",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GoogleSearch.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GoogleSearch/GoogleSearch.srs"
+   },
+   {
+    "tag": "ss_GoogleVoice",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GoogleVoice.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GoogleVoice/GoogleVoice.srs"
+   },
+   {
+    "tag": "ss_GovCN",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GovCN.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GovCN/GovCN.srs"
+   },
+   {
+    "tag": "ss_Gucci",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Gucci.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Gucci/Gucci.srs"
+   },
+   {
+    "tag": "ss_GuiGuDongLi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_GuiGuDongLi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/GuiGuDongLi/GuiGuDongLi.srs"
+   },
+   {
+    "tag": "ss_HBO",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HBO.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HBO/HBO.srs"
+   },
+   {
+    "tag": "ss_HBOAsia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HBOAsia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HBOAsia/HBOAsia.srs"
+   },
+   {
+    "tag": "ss_HBOHK",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HBOHK.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HBOHK/HBOHK.srs"
+   },
+   {
+    "tag": "ss_HBOUSA",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HBOUSA.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HBOUSA/HBOUSA.srs"
+   },
+   {
+    "tag": "ss_HKBN",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HKBN.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HKBN/HKBN.srs"
+   },
+   {
+    "tag": "ss_HKOpenTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HKOpenTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HKOpenTV/HKOpenTV.srs"
+   },
+   {
+    "tag": "ss_HKedcity",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HKedcity.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HKedcity/HKedcity.srs"
+   },
+   {
+    "tag": "ss_HP",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HP.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HP/HP.srs"
+   },
+   {
+    "tag": "ss_HWTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HWTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HWTV/HWTV.srs"
+   },
+   {
+    "tag": "ss_HaiNanHangKong",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HaiNanHangKong.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HaiNanHangKong/HaiNanHangKong.srs"
+   },
+   {
+    "tag": "ss_HamiVideo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HamiVideo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HamiVideo/HamiVideo.srs"
+   },
+   {
+    "tag": "ss_HanYi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HanYi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HanYi/HanYi.srs"
+   },
+   {
+    "tag": "ss_HashiCorp",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HashiCorp.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HashiCorp/HashiCorp.srs"
+   },
+   {
+    "tag": "ss_Haveibeenpwned",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Haveibeenpwned.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Haveibeenpwned/Haveibeenpwned.srs"
+   },
+   {
+    "tag": "ss_HeMa",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HeMa.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HeMa/HeMa.srs"
+   },
+   {
+    "tag": "ss_Hearthstone",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Hearthstone.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Hearthstone/Hearthstone.srs"
+   },
+   {
+    "tag": "ss_HeroesoftheStorm",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HeroesoftheStorm.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HeroesoftheStorm/HeroesoftheStorm.srs"
+   },
+   {
+    "tag": "ss_Heroku",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Heroku.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Heroku/Heroku.srs"
+   },
+   {
+    "tag": "ss_HiNet",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HiNet.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HiNet/HiNet.srs"
+   },
+   {
+    "tag": "ss_HibyMusic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HibyMusic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HibyMusic/HibyMusic.srs"
+   },
+   {
+    "tag": "ss_Hijacking",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Hijacking.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Hijacking/Hijacking.srs"
+   },
+   {
+    "tag": "ss_Himalaya",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Himalaya.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Himalaya/Himalaya.srs"
+   },
+   {
+    "tag": "ss_Hkgolden",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Hkgolden.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Hkgolden/Hkgolden.srs"
+   },
+   {
+    "tag": "ss_HoYoverse",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HoYoverse.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HoYoverse/HoYoverse.srs"
+   },
+   {
+    "tag": "ss_Hpplay",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Hpplay.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Hpplay/Hpplay.srs"
+   },
+   {
+    "tag": "ss_HuYa",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HuYa.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HuYa/HuYa.srs"
+   },
+   {
+    "tag": "ss_HuaShuTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HuaShuTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HuaShuTV/HuaShuTV.srs"
+   },
+   {
+    "tag": "ss_HuanJu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HuanJu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HuanJu/HuanJu.srs"
+   },
+   {
+    "tag": "ss_Huawei",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Huawei.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Huawei/Huawei.srs"
+   },
+   {
+    "tag": "ss_HuaweiCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HuaweiCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HuaweiCloud/HuaweiCloud.srs"
+   },
+   {
+    "tag": "ss_Huffpost",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Huffpost.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Huffpost/Huffpost.srs"
+   },
+   {
+    "tag": "ss_Hulu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Hulu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Hulu/Hulu.srs"
+   },
+   {
+    "tag": "ss_HuluJP",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HuluJP.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HuluJP/HuluJP.srs"
+   },
+   {
+    "tag": "ss_HuluUSA",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HuluUSA.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HuluUSA/HuluUSA.srs"
+   },
+   {
+    "tag": "ss_HunanTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_HunanTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/HunanTV/HunanTV.srs"
+   },
+   {
+    "tag": "ss_Hupu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Hupu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Hupu/Hupu.srs"
+   },
+   {
+    "tag": "ss_IBM",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_IBM.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/IBM/IBM.srs"
+   },
+   {
+    "tag": "ss_ICBC",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ICBC.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ICBC/ICBC.srs"
+   },
+   {
+    "tag": "ss_IKEA",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_IKEA.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/IKEA/IKEA.srs"
+   },
+   {
+    "tag": "ss_IMDB",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_IMDB.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/IMDB/IMDB.srs"
+   },
+   {
+    "tag": "ss_IPTVMainland",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_IPTVMainland.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/IPTVMainland/IPTVMainland.srs"
+   },
+   {
+    "tag": "ss_IPTVOther",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_IPTVOther.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/IPTVOther/IPTVOther.srs"
+   },
+   {
+    "tag": "ss_ITV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ITV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ITV/ITV.srs"
+   },
+   {
+    "tag": "ss_Identrust",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Identrust.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Identrust/Identrust.srs"
+   },
+   {
+    "tag": "ss_Imgur",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Imgur.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Imgur/Imgur.srs"
+   },
+   {
+    "tag": "ss_Instagram",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Instagram.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Instagram/Instagram.srs"
+   },
+   {
+    "tag": "ss_Intel",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Intel.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Intel/Intel.srs"
+   },
+   {
+    "tag": "ss_Intercom",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Intercom.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Intercom/Intercom.srs"
+   },
+   {
+    "tag": "ss_JOOX",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_JOOX.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/JOOX/JOOX.srs"
+   },
+   {
+    "tag": "ss_Japonx",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Japonx.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Japonx/Japonx.srs"
+   },
+   {
+    "tag": "ss_Jetbrains",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Jetbrains.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Jetbrains/Jetbrains.srs"
+   },
+   {
+    "tag": "ss_Jfrog",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Jfrog.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Jfrog/Jfrog.srs"
+   },
+   {
+    "tag": "ss_JiGuangTuiSong",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_JiGuangTuiSong.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/JiGuangTuiSong/JiGuangTuiSong.srs"
+   },
+   {
+    "tag": "ss_JianGuoYun",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_JianGuoYun.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/JianGuoYun/JianGuoYun.srs"
+   },
+   {
+    "tag": "ss_JianShu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_JianShu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/JianShu/JianShu.srs"
+   },
+   {
+    "tag": "ss_JinJiangWenXue",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_JinJiangWenXue.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/JinJiangWenXue/JinJiangWenXue.srs"
+   },
+   {
+    "tag": "ss_JingDong",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_JingDong.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/JingDong/JingDong.srs"
+   },
+   {
+    "tag": "ss_JingDongCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_JingDongCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/JingDongCloud/JingDongCloud.srs"
+   },
+   {
+    "tag": "ss_Jquery",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Jquery.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Jquery/Jquery.srs"
+   },
+   {
+    "tag": "ss_Jsdelivr",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Jsdelivr.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Jsdelivr/Jsdelivr.srs"
+   },
+   {
+    "tag": "ss_JueJin",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_JueJin.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/JueJin/JueJin.srs"
+   },
+   {
+    "tag": "ss_Jwplayer",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Jwplayer.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Jwplayer/Jwplayer.srs"
+   },
+   {
+    "tag": "ss_KKBOX",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KKBOX.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KKBOX/KKBOX.srs"
+   },
+   {
+    "tag": "ss_KKTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KKTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KKTV/KKTV.srs"
+   },
+   {
+    "tag": "ss_KakaoTalk",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KakaoTalk.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KakaoTalk/KakaoTalk.srs"
+   },
+   {
+    "tag": "ss_Kantv",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Kantv.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Kantv/Kantv.srs"
+   },
+   {
+    "tag": "ss_Keep",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Keep.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Keep/Keep.srs"
+   },
+   {
+    "tag": "ss_KingSmith",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KingSmith.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KingSmith/KingSmith.srs"
+   },
+   {
+    "tag": "ss_Kingsoft",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Kingsoft.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Kingsoft/Kingsoft.srs"
+   },
+   {
+    "tag": "ss_KingsoftCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KingsoftCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KingsoftCloud/KingsoftCloud.srs"
+   },
+   {
+    "tag": "ss_KouDaiShiShang",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KouDaiShiShang.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KouDaiShiShang/KouDaiShiShang.srs"
+   },
+   {
+    "tag": "ss_Ku6",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Ku6.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Ku6/Ku6.srs"
+   },
+   {
+    "tag": "ss_KuKeMusic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KuKeMusic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KuKeMusic/KuKeMusic.srs"
+   },
+   {
+    "tag": "ss_KuaiDi100",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KuaiDi100.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KuaiDi100/KuaiDi100.srs"
+   },
+   {
+    "tag": "ss_KuaiShou",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KuaiShou.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KuaiShou/KuaiShou.srs"
+   },
+   {
+    "tag": "ss_KuangShi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KuangShi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KuangShi/KuangShi.srs"
+   },
+   {
+    "tag": "ss_KugouKuwo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_KugouKuwo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/KugouKuwo/KugouKuwo.srs"
+   },
+   {
+    "tag": "ss_LG",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LG.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LG/LG.srs"
+   },
+   {
+    "tag": "ss_Lan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Lan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Lan/Lan.srs"
+   },
+   {
+    "tag": "ss_LanZouYun",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LanZouYun.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LanZouYun/LanZouYun.srs"
+   },
+   {
+    "tag": "ss_LastFM",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LastFM.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LastFM/LastFM.srs"
+   },
+   {
+    "tag": "ss_LastPass",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LastPass.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LastPass/LastPass.srs"
+   },
+   {
+    "tag": "ss_LeJu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LeJu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LeJu/LeJu.srs"
+   },
+   {
+    "tag": "ss_LeTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LeTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LeTV/LeTV.srs"
+   },
+   {
+    "tag": "ss_Lenovo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Lenovo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Lenovo/Lenovo.srs"
+   },
+   {
+    "tag": "ss_LiTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LiTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LiTV/LiTV.srs"
+   },
+   {
+    "tag": "ss_LianMeng",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LianMeng.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LianMeng/LianMeng.srs"
+   },
+   {
+    "tag": "ss_Limelight",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Limelight.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Limelight/Limelight.srs"
+   },
+   {
+    "tag": "ss_Line",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Line.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Line/Line.srs"
+   },
+   {
+    "tag": "ss_LineTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LineTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LineTV/LineTV.srs"
+   },
+   {
+    "tag": "ss_Linguee",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Linguee.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Linguee/Linguee.srs"
+   },
+   {
+    "tag": "ss_LinkedIn",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LinkedIn.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LinkedIn/LinkedIn.srs"
+   },
+   {
+    "tag": "ss_Linux",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Linux.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Linux/Linux.srs"
+   },
+   {
+    "tag": "ss_LivePerson",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LivePerson.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LivePerson/LivePerson.srs"
+   },
+   {
+    "tag": "ss_Logitech",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Logitech.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Logitech/Logitech.srs"
+   },
+   {
+    "tag": "ss_LondonReal",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LondonReal.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LondonReal/LondonReal.srs"
+   },
+   {
+    "tag": "ss_LuDaShi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LuDaShi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LuDaShi/LuDaShi.srs"
+   },
+   {
+    "tag": "ss_LvMiLianChuang",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_LvMiLianChuang.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/LvMiLianChuang/LvMiLianChuang.srs"
+   },
+   {
+    "tag": "ss_MEGA",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MEGA.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MEGA/MEGA.srs"
+   },
+   {
+    "tag": "ss_MIUIPrivacy",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MIUIPrivacy.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MIUIPrivacy/MIUIPrivacy.srs"
+   },
+   {
+    "tag": "ss_MOMOShop",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MOMOShop.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MOMOShop/MOMOShop.srs"
+   },
+   {
+    "tag": "ss_MOOV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MOOV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MOOV/MOOV.srs"
+   },
+   {
+    "tag": "ss_Mail",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Mail.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Mail/Mail.srs"
+   },
+   {
+    "tag": "ss_Mailru",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Mailru.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Mailru/Mailru.srs"
+   },
+   {
+    "tag": "ss_Majsoul",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Majsoul.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Majsoul/Majsoul.srs"
+   },
+   {
+    "tag": "ss_Manorama",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Manorama.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Manorama/Manorama.srs"
+   },
+   {
+    "tag": "ss_Maocloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Maocloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Maocloud/Maocloud.srs"
+   },
+   {
+    "tag": "ss_Marketing",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Marketing.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Marketing/Marketing.srs"
+   },
+   {
+    "tag": "ss_McDonalds",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_McDonalds.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/McDonalds/McDonalds.srs"
+   },
+   {
+    "tag": "ss_MeWatch",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MeWatch.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MeWatch/MeWatch.srs"
+   },
+   {
+    "tag": "ss_MeiTu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MeiTu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MeiTu/MeiTu.srs"
+   },
+   {
+    "tag": "ss_MeiTuan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MeiTuan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MeiTuan/MeiTuan.srs"
+   },
+   {
+    "tag": "ss_MeiZu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MeiZu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MeiZu/MeiZu.srs"
+   },
+   {
+    "tag": "ss_MiWu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MiWu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MiWu/MiWu.srs"
+   },
+   {
+    "tag": "ss_Microsoft",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Microsoft.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Microsoft/Microsoft.srs"
+   },
+   {
+    "tag": "ss_MicrosoftEdge",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MicrosoftEdge.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MicrosoftEdge/MicrosoftEdge.srs"
+   },
+   {
+    "tag": "ss_Migu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Migu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Migu/Migu.srs"
+   },
+   {
+    "tag": "ss_MingLueZhaoHui",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_MingLueZhaoHui.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MingLueZhaoHui/MingLueZhaoHui.srs"
+   },
+   {
+    "tag": "ss_Mogujie",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Mogujie.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Mogujie/Mogujie.srs"
+   },
+   {
+    "tag": "ss_Mojitianqi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Mojitianqi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Mojitianqi/Mojitianqi.srs"
+   },
+   {
+    "tag": "ss_Movefree",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Movefree.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Movefree/Movefree.srs"
+   },
+   {
+    "tag": "ss_Mozilla",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Mozilla.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Mozilla/Mozilla.srs"
+   },
+   {
+    "tag": "ss_My5",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_My5.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/My5/My5.srs"
+   },
+   {
+    "tag": "ss_NBC",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NBC.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NBC/NBC.srs"
+   },
+   {
+    "tag": "ss_NGA",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NGA.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NGA/NGA.srs"
+   },
+   {
+    "tag": "ss_NGAA",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NGAA.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NGAA/NGAA.srs"
+   },
+   {
+    "tag": "ss_NTPService",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NTPService.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NTPService/NTPService.srs"
+   },
+   {
+    "tag": "ss_NYPost",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NYPost.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NYPost/NYPost.srs"
+   },
+   {
+    "tag": "ss_NYTimes",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NYTimes.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NYTimes/NYTimes.srs"
+   },
+   {
+    "tag": "ss_NaSDDNS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NaSDDNS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NaSDDNS/NaSDDNS.srs"
+   },
+   {
+    "tag": "ss_Naver",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Naver.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Naver/Naver.srs"
+   },
+   {
+    "tag": "ss_NaverTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NaverTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NaverTV/NaverTV.srs"
+   },
+   {
+    "tag": "ss_NetEase",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NetEase.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NetEase/NetEase.srs"
+   },
+   {
+    "tag": "ss_NetEaseMusic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NetEaseMusic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NetEaseMusic/NetEaseMusic.srs"
+   },
+   {
+    "tag": "ss_NeteaseCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NeteaseCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NeteaseCloud/NeteaseCloud.srs"
+   },
+   {
+    "tag": "ss_Netflix",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Netflix.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Netflix/Netflix.srs"
+   },
+   {
+    "tag": "ss_Niconico",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Niconico.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Niconico/Niconico.srs"
+   },
+   {
+    "tag": "ss_Nike",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Nike.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Nike/Nike.srs"
+   },
+   {
+    "tag": "ss_Nikkei",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Nikkei.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Nikkei/Nikkei.srs"
+   },
+   {
+    "tag": "ss_Nintendo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Nintendo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Nintendo/Nintendo.srs"
+   },
+   {
+    "tag": "ss_NivodTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NivodTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NivodTV/NivodTV.srs"
+   },
+   {
+    "tag": "ss_Notion",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Notion.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Notion/Notion.srs"
+   },
+   {
+    "tag": "ss_NowE",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_NowE.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/NowE/NowE.srs"
+   },
+   {
+    "tag": "ss_Npmjs",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Npmjs.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Npmjs/Npmjs.srs"
+   },
+   {
+    "tag": "ss_Nvidia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Nvidia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Nvidia/Nvidia.srs"
+   },
+   {
+    "tag": "ss_OKX",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_OKX.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/OKX/OKX.srs"
+   },
+   {
+    "tag": "ss_OP",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_OP.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/OP/OP.srs"
+   },
+   {
+    "tag": "ss_OPPO",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_OPPO.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/OPPO/OPPO.srs"
+   },
+   {
+    "tag": "ss_Olevod",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Olevod.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Olevod/Olevod.srs"
+   },
+   {
+    "tag": "ss_OneDrive",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_OneDrive.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/OneDrive/OneDrive.srs"
+   },
+   {
+    "tag": "ss_OnePlus",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_OnePlus.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/OnePlus/OnePlus.srs"
+   },
+   {
+    "tag": "ss_OpenAI",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_OpenAI.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/OpenAI/OpenAI.srs"
+   },
+   {
+    "tag": "ss_Opera",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Opera.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Opera/Opera.srs"
+   },
+   {
+    "tag": "ss_Oracle",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Oracle.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Oracle/Oracle.srs"
+   },
+   {
+    "tag": "ss_Oreilly",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Oreilly.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Oreilly/Oreilly.srs"
+   },
+   {
+    "tag": "ss_Origin",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Origin.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Origin/Origin.srs"
+   },
+   {
+    "tag": "ss_OuPeng",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_OuPeng.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/OuPeng/OuPeng.srs"
+   },
+   {
+    "tag": "ss_Overcast",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Overcast.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Overcast/Overcast.srs"
+   },
+   {
+    "tag": "ss_Overwatch",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Overwatch.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Overwatch/Overwatch.srs"
+   },
+   {
+    "tag": "ss_PBS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PBS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PBS/PBS.srs"
+   },
+   {
+    "tag": "ss_PCCW",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PCCW.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PCCW/PCCW.srs"
+   },
+   {
+    "tag": "ss_PChome",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PChome.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PChome/PChome.srs"
+   },
+   {
+    "tag": "ss_PChomeTW",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PChomeTW.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PChomeTW/PChomeTW.srs"
+   },
+   {
+    "tag": "ss_PPTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PPTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PPTV/PPTV.srs"
+   },
+   {
+    "tag": "ss_PSBC",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PSBC.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PSBC/PSBC.srs"
+   },
+   {
+    "tag": "ss_Pandora",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Pandora.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Pandora/Pandora.srs"
+   },
+   {
+    "tag": "ss_PandoraTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PandoraTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PandoraTV/PandoraTV.srs"
+   },
+   {
+    "tag": "ss_ParamountPlus",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ParamountPlus.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ParamountPlus/ParamountPlus.srs"
+   },
+   {
+    "tag": "ss_Patreon",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Patreon.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Patreon/Patreon.srs"
+   },
+   {
+    "tag": "ss_PayPal",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PayPal.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PayPal/PayPal.srs"
+   },
+   {
+    "tag": "ss_Peacock",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Peacock.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Peacock/Peacock.srs"
+   },
+   {
+    "tag": "ss_Picacg",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Picacg.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Picacg/Picacg.srs"
+   },
+   {
+    "tag": "ss_Picsee",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Picsee.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Picsee/Picsee.srs"
+   },
+   {
+    "tag": "ss_PikPak",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PikPak.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PikPak/PikPak.srs"
+   },
+   {
+    "tag": "ss_Pinduoduo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Pinduoduo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Pinduoduo/Pinduoduo.srs"
+   },
+   {
+    "tag": "ss_PingAn",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PingAn.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PingAn/PingAn.srs"
+   },
+   {
+    "tag": "ss_Pinterest",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Pinterest.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Pinterest/Pinterest.srs"
+   },
+   {
+    "tag": "ss_Pixiv",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Pixiv.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Pixiv/Pixiv.srs"
+   },
+   {
+    "tag": "ss_Pixnet",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Pixnet.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Pixnet/Pixnet.srs"
+   },
+   {
+    "tag": "ss_PlayStation",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PlayStation.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PlayStation/PlayStation.srs"
+   },
+   {
+    "tag": "ss_PotatoChat",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PotatoChat.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PotatoChat/PotatoChat.srs"
+   },
+   {
+    "tag": "ss_PrimeVideo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PrimeVideo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PrimeVideo/PrimeVideo.srs"
+   },
+   {
+    "tag": "ss_Privacy",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Privacy.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Privacy/Privacy.srs"
+   },
+   {
+    "tag": "ss_PrivateTracker",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_PrivateTracker.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/PrivateTracker/PrivateTracker.srs"
+   },
+   {
+    "tag": "ss_Protonmail",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Protonmail.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Protonmail/Protonmail.srs"
+   },
+   {
+    "tag": "ss_Proxy",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Proxy.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Proxy/Proxy.srs"
+   },
+   {
+    "tag": "ss_ProxyLite",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ProxyLite.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ProxyLite/ProxyLite.srs"
+   },
+   {
+    "tag": "ss_Pubmatic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Pubmatic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Pubmatic/Pubmatic.srs"
+   },
+   {
+    "tag": "ss_Purikonejp",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Purikonejp.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Purikonejp/Purikonejp.srs"
+   },
+   {
+    "tag": "ss_Python",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Python.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Python/Python.srs"
+   },
+   {
+    "tag": "ss_QiNiuYun",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_QiNiuYun.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/QiNiuYun/QiNiuYun.srs"
+   },
+   {
+    "tag": "ss_QingCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_QingCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/QingCloud/QingCloud.srs"
+   },
+   {
+    "tag": "ss_Qobuz",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Qobuz.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Qobuz/Qobuz.srs"
+   },
+   {
+    "tag": "ss_Qualcomm",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Qualcomm.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Qualcomm/Qualcomm.srs"
+   },
+   {
+    "tag": "ss_QuickConnect",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_QuickConnect.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/QuickConnect/QuickConnect.srs"
+   },
+   {
+    "tag": "ss_Qyyjt",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Qyyjt.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Qyyjt/Qyyjt.srs"
+   },
+   {
+    "tag": "ss_RTHK",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_RTHK.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/RTHK/RTHK.srs"
+   },
+   {
+    "tag": "ss_Rakuten",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Rakuten.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Rakuten/Rakuten.srs"
+   },
+   {
+    "tag": "ss_Rarbg",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Rarbg.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Rarbg/Rarbg.srs"
+   },
+   {
+    "tag": "ss_Razer",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Razer.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Razer/Razer.srs"
+   },
+   {
+    "tag": "ss_Reabble",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Reabble.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Reabble/Reabble.srs"
+   },
+   {
+    "tag": "ss_Reddit",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Reddit.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Reddit/Reddit.srs"
+   },
+   {
+    "tag": "ss_RemoteDesktop",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_RemoteDesktop.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/RemoteDesktop/RemoteDesktop.srs"
+   },
+   {
+    "tag": "ss_Riot",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Riot.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Riot/Riot.srs"
+   },
+   {
+    "tag": "ss_Rockstar",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Rockstar.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Rockstar/Rockstar.srs"
+   },
+   {
+    "tag": "ss_RuanMei",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_RuanMei.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/RuanMei/RuanMei.srs"
+   },
+   {
+    "tag": "ss_SFExpress",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SFExpress.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SFExpress/SFExpress.srs"
+   },
+   {
+    "tag": "ss_SMG",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SMG.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SMG/SMG.srs"
+   },
+   {
+    "tag": "ss_SMZDM",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SMZDM.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SMZDM/SMZDM.srs"
+   },
+   {
+    "tag": "ss_STUN",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_STUN.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/STUN/STUN.srs"
+   },
+   {
+    "tag": "ss_Salesforce",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Salesforce.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Salesforce/Salesforce.srs"
+   },
+   {
+    "tag": "ss_Samsung",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Samsung.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Samsung/Samsung.srs"
+   },
+   {
+    "tag": "ss_Scaleflex",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Scaleflex.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Scaleflex/Scaleflex.srs"
+   },
+   {
+    "tag": "ss_Scholar",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Scholar.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Scholar/Scholar.srs"
+   },
+   {
+    "tag": "ss_Sectigo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Sectigo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Sectigo/Sectigo.srs"
+   },
+   {
+    "tag": "ss_ShangHaiJuXiao",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ShangHaiJuXiao.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ShangHaiJuXiao/ShangHaiJuXiao.srs"
+   },
+   {
+    "tag": "ss_Shanling",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Shanling.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Shanling/Shanling.srs"
+   },
+   {
+    "tag": "ss_Sharethis",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Sharethis.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Sharethis/Sharethis.srs"
+   },
+   {
+    "tag": "ss_ShenMa",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ShenMa.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ShenMa/ShenMa.srs"
+   },
+   {
+    "tag": "ss_ShiJiChaoXing",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ShiJiChaoXing.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ShiJiChaoXing/ShiJiChaoXing.srs"
+   },
+   {
+    "tag": "ss_ShiNongZhiKe",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ShiNongZhiKe.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ShiNongZhiKe/ShiNongZhiKe.srs"
+   },
+   {
+    "tag": "ss_Shopee",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Shopee.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Shopee/Shopee.srs"
+   },
+   {
+    "tag": "ss_Shopify",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Shopify.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Shopify/Shopify.srs"
+   },
+   {
+    "tag": "ss_Sina",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Sina.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Sina/Sina.srs"
+   },
+   {
+    "tag": "ss_Siri",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Siri.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Siri/Siri.srs"
+   },
+   {
+    "tag": "ss_SkyGO",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SkyGO.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SkyGO/SkyGO.srs"
+   },
+   {
+    "tag": "ss_Slack",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Slack.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Slack/Slack.srs"
+   },
+   {
+    "tag": "ss_SlideShare",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SlideShare.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SlideShare/SlideShare.srs"
+   },
+   {
+    "tag": "ss_Sling",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Sling.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Sling/Sling.srs"
+   },
+   {
+    "tag": "ss_SmarTone",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SmarTone.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SmarTone/SmarTone.srs"
+   },
+   {
+    "tag": "ss_Snap",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Snap.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Snap/Snap.srs"
+   },
+   {
+    "tag": "ss_Sohu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Sohu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Sohu/Sohu.srs"
+   },
+   {
+    "tag": "ss_Sony",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Sony.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Sony/Sony.srs"
+   },
+   {
+    "tag": "ss_SouFang",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SouFang.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SouFang/SouFang.srs"
+   },
+   {
+    "tag": "ss_SoundCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SoundCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SoundCloud/SoundCloud.srs"
+   },
+   {
+    "tag": "ss_SourceForge",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SourceForge.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SourceForge/SourceForge.srs"
+   },
+   {
+    "tag": "ss_Spark",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Spark.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Spark/Spark.srs"
+   },
+   {
+    "tag": "ss_Speedtest",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Speedtest.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Speedtest/Speedtest.srs"
+   },
+   {
+    "tag": "ss_Spotify",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Spotify.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Spotify/Spotify.srs"
+   },
+   {
+    "tag": "ss_Stackexchange",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Stackexchange.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Stackexchange/Stackexchange.srs"
+   },
+   {
+    "tag": "ss_StarCraftII",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_StarCraftII.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/StarCraftII/StarCraftII.srs"
+   },
+   {
+    "tag": "ss_Starbucks",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Starbucks.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Starbucks/Starbucks.srs"
+   },
+   {
+    "tag": "ss_Steam",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Steam.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Steam/Steam.srs"
+   },
+   {
+    "tag": "ss_SteamCN",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SteamCN.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SteamCN/SteamCN.srs"
+   },
+   {
+    "tag": "ss_Stripe",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Stripe.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Stripe/Stripe.srs"
+   },
+   {
+    "tag": "ss_SuNing",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SuNing.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SuNing/SuNing.srs"
+   },
+   {
+    "tag": "ss_SublimeText",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SublimeText.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SublimeText/SublimeText.srs"
+   },
+   {
+    "tag": "ss_SuiShiChuanMei",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SuiShiChuanMei.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SuiShiChuanMei/SuiShiChuanMei.srs"
+   },
+   {
+    "tag": "ss_Supercell",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Supercell.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Supercell/Supercell.srs"
+   },
+   {
+    "tag": "ss_Synology",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Synology.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Synology/Synology.srs"
+   },
+   {
+    "tag": "ss_SystemOTA",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_SystemOTA.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/SystemOTA/SystemOTA.srs"
+   },
+   {
+    "tag": "ss_TCL",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TCL.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TCL/TCL.srs"
+   },
+   {
+    "tag": "ss_TIDAL",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TIDAL.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TIDAL/TIDAL.srs"
+   },
+   {
+    "tag": "ss_TVB",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TVB.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TVB/TVB.srs"
+   },
+   {
+    "tag": "ss_TVer",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TVer.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TVer/TVer.srs"
+   },
+   {
+    "tag": "ss_TaiKang",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TaiKang.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TaiKang/TaiKang.srs"
+   },
+   {
+    "tag": "ss_TaiWanGood",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TaiWanGood.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TaiWanGood/TaiWanGood.srs"
+   },
+   {
+    "tag": "ss_TaiheMusic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TaiheMusic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TaiheMusic/TaiheMusic.srs"
+   },
+   {
+    "tag": "ss_TapTap",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TapTap.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TapTap/TapTap.srs"
+   },
+   {
+    "tag": "ss_TeamViewer",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TeamViewer.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TeamViewer/TeamViewer.srs"
+   },
+   {
+    "tag": "ss_Teambition",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Teambition.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Teambition/Teambition.srs"
+   },
+   {
+    "tag": "ss_Teams",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Teams.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Teams/Teams.srs"
+   },
+   {
+    "tag": "ss_Telegram",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Telegram.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Telegram/Telegram.srs"
+   },
+   {
+    "tag": "ss_TelegramNL",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TelegramNL.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TelegramNL/TelegramNL.srs"
+   },
+   {
+    "tag": "ss_TelegramSG",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TelegramSG.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TelegramSG/TelegramSG.srs"
+   },
+   {
+    "tag": "ss_TelegramUS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TelegramUS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TelegramUS/TelegramUS.srs"
+   },
+   {
+    "tag": "ss_Tencent",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Tencent.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Tencent/Tencent.srs"
+   },
+   {
+    "tag": "ss_TencentCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TencentCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TencentCloud/TencentCloud.srs"
+   },
+   {
+    "tag": "ss_TencentVideo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TencentVideo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TencentVideo/TencentVideo.srs"
+   },
+   {
+    "tag": "ss_TeraBox",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TeraBox.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TeraBox/TeraBox.srs"
+   },
+   {
+    "tag": "ss_Tesla",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Tesla.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Tesla/Tesla.srs"
+   },
+   {
+    "tag": "ss_TestFlight",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TestFlight.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TestFlight/TestFlight.srs"
+   },
+   {
+    "tag": "ss_ThomsonReuters",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ThomsonReuters.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ThomsonReuters/ThomsonReuters.srs"
+   },
+   {
+    "tag": "ss_Threads",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Threads.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Threads/Threads.srs"
+   },
+   {
+    "tag": "ss_TianTianKanKan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TianTianKanKan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TianTianKanKan/TianTianKanKan.srs"
+   },
+   {
+    "tag": "ss_TianWeiChengXin",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TianWeiChengXin.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TianWeiChengXin/TianWeiChengXin.srs"
+   },
+   {
+    "tag": "ss_TianYaForum",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TianYaForum.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TianYaForum/TianYaForum.srs"
+   },
+   {
+    "tag": "ss_TigerFintech",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TigerFintech.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TigerFintech/TigerFintech.srs"
+   },
+   {
+    "tag": "ss_TikTok",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TikTok.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TikTok/TikTok.srs"
+   },
+   {
+    "tag": "ss_Tmdb",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Tmdb.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Tmdb/Tmdb.srs"
+   },
+   {
+    "tag": "ss_TongCheng",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TongCheng.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TongCheng/TongCheng.srs"
+   },
+   {
+    "tag": "ss_TrustWave",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TrustWave.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TrustWave/TrustWave.srs"
+   },
+   {
+    "tag": "ss_TruthSocial",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_TruthSocial.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/TruthSocial/TruthSocial.srs"
+   },
+   {
+    "tag": "ss_Tumblr",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Tumblr.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Tumblr/Tumblr.srs"
+   },
+   {
+    "tag": "ss_Twitch",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Twitch.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Twitch/Twitch.srs"
+   },
+   {
+    "tag": "ss_Twitter",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Twitter.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Twitter/Twitter.srs"
+   },
+   {
+    "tag": "ss_U17",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_U17.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/U17/U17.srs"
+   },
+   {
+    "tag": "ss_UBI",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_UBI.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/UBI/UBI.srs"
+   },
+   {
+    "tag": "ss_UC",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_UC.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/UC/UC.srs"
+   },
+   {
+    "tag": "ss_UCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_UCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/UCloud/UCloud.srs"
+   },
+   {
+    "tag": "ss_UKMedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_UKMedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/UKMedia/UKMedia.srs"
+   },
+   {
+    "tag": "ss_UPYun",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_UPYun.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/UPYun/UPYun.srs"
+   },
+   {
+    "tag": "ss_USMedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_USMedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/USMedia/USMedia.srs"
+   },
+   {
+    "tag": "ss_Ubisoft",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Ubisoft.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Ubisoft/Ubisoft.srs"
+   },
+   {
+    "tag": "ss_Ubuntu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Ubuntu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Ubuntu/Ubuntu.srs"
+   },
+   {
+    "tag": "ss_Udacity",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Udacity.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Udacity/Udacity.srs"
+   },
+   {
+    "tag": "ss_UnionPay",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_UnionPay.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/UnionPay/UnionPay.srs"
+   },
+   {
+    "tag": "ss_Unity",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Unity.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Unity/Unity.srs"
+   },
+   {
+    "tag": "ss_VISA",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_VISA.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/VISA/VISA.srs"
+   },
+   {
+    "tag": "ss_VK",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_VK.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/VK/VK.srs"
+   },
+   {
+    "tag": "ss_VOA",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_VOA.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/VOA/VOA.srs"
+   },
+   {
+    "tag": "ss_Vancl",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Vancl.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Vancl/Vancl.srs"
+   },
+   {
+    "tag": "ss_Vercel",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Vercel.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Vercel/Vercel.srs"
+   },
+   {
+    "tag": "ss_Verisign",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Verisign.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Verisign/Verisign.srs"
+   },
+   {
+    "tag": "ss_Verizon",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Verizon.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Verizon/Verizon.srs"
+   },
+   {
+    "tag": "ss_VidolTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_VidolTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/VidolTV/VidolTV.srs"
+   },
+   {
+    "tag": "ss_VikACG",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_VikACG.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/VikACG/VikACG.srs"
+   },
+   {
+    "tag": "ss_Viki",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Viki.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Viki/Viki.srs"
+   },
+   {
+    "tag": "ss_Vimeo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Vimeo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Vimeo/Vimeo.srs"
+   },
+   {
+    "tag": "ss_VipShop",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_VipShop.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/VipShop/VipShop.srs"
+   },
+   {
+    "tag": "ss_ViuTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ViuTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ViuTV/ViuTV.srs"
+   },
+   {
+    "tag": "ss_Vivo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Vivo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Vivo/Vivo.srs"
+   },
+   {
+    "tag": "ss_Voxmedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Voxmedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Voxmedia/Voxmedia.srs"
+   },
+   {
+    "tag": "ss_W3schools",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_W3schools.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/W3schools/W3schools.srs"
+   },
+   {
+    "tag": "ss_WIX",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WIX.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WIX/WIX.srs"
+   },
+   {
+    "tag": "ss_WanKaHuanJu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WanKaHuanJu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WanKaHuanJu/WanKaHuanJu.srs"
+   },
+   {
+    "tag": "ss_WanMeiShiJie",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WanMeiShiJie.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WanMeiShiJie/WanMeiShiJie.srs"
+   },
+   {
+    "tag": "ss_Wanfang",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Wanfang.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Wanfang/Wanfang.srs"
+   },
+   {
+    "tag": "ss_WangSuKeJi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WangSuKeJi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WangSuKeJi/WangSuKeJi.srs"
+   },
+   {
+    "tag": "ss_WangXinKeJi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WangXinKeJi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WangXinKeJi/WangXinKeJi.srs"
+   },
+   {
+    "tag": "ss_WeChat",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WeChat.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WeChat/WeChat.srs"
+   },
+   {
+    "tag": "ss_WeTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WeTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WeTV/WeTV.srs"
+   },
+   {
+    "tag": "ss_WeType",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WeType.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WeType/WeType.srs"
+   },
+   {
+    "tag": "ss_WeiZhiYunDong",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WeiZhiYunDong.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WeiZhiYunDong/WeiZhiYunDong.srs"
+   },
+   {
+    "tag": "ss_Weibo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Weibo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Weibo/Weibo.srs"
+   },
+   {
+    "tag": "ss_WenJuanXing",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WenJuanXing.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WenJuanXing/WenJuanXing.srs"
+   },
+   {
+    "tag": "ss_Westerndigital",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Westerndigital.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Westerndigital/Westerndigital.srs"
+   },
+   {
+    "tag": "ss_Whatsapp",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Whatsapp.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Whatsapp/Whatsapp.srs"
+   },
+   {
+    "tag": "ss_WiFiMaster",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WiFiMaster.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WiFiMaster/WiFiMaster.srs"
+   },
+   {
+    "tag": "ss_Wikimedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Wikimedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Wikimedia/Wikimedia.srs"
+   },
+   {
+    "tag": "ss_Wikipedia",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Wikipedia.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Wikipedia/Wikipedia.srs"
+   },
+   {
+    "tag": "ss_WildRift",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WildRift.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WildRift/WildRift.srs"
+   },
+   {
+    "tag": "ss_WoLai",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WoLai.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WoLai/WoLai.srs"
+   },
+   {
+    "tag": "ss_Wordpress",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Wordpress.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Wordpress/Wordpress.srs"
+   },
+   {
+    "tag": "ss_WorldofWarcraft",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_WorldofWarcraft.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/WorldofWarcraft/WorldofWarcraft.srs"
+   },
+   {
+    "tag": "ss_Wteam",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Wteam.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Wteam/Wteam.srs"
+   },
+   {
+    "tag": "ss_Xbox",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Xbox.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Xbox/Xbox.srs"
+   },
+   {
+    "tag": "ss_XiamiMusic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_XiamiMusic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/XiamiMusic/XiamiMusic.srs"
+   },
+   {
+    "tag": "ss_XianYu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_XianYu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/XianYu/XianYu.srs"
+   },
+   {
+    "tag": "ss_XiaoGouKeJi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_XiaoGouKeJi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/XiaoGouKeJi/XiaoGouKeJi.srs"
+   },
+   {
+    "tag": "ss_XiaoHongShu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_XiaoHongShu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/XiaoHongShu/XiaoHongShu.srs"
+   },
+   {
+    "tag": "ss_XiaoMi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_XiaoMi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/XiaoMi/XiaoMi.srs"
+   },
+   {
+    "tag": "ss_XiaoYuanKeJi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_XiaoYuanKeJi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/XiaoYuanKeJi/XiaoYuanKeJi.srs"
+   },
+   {
+    "tag": "ss_XieCheng",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_XieCheng.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/XieCheng/XieCheng.srs"
+   },
+   {
+    "tag": "ss_XingKongWuXian",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_XingKongWuXian.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/XingKongWuXian/XingKongWuXian.srs"
+   },
+   {
+    "tag": "ss_XueErSi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_XueErSi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/XueErSi/XueErSi.srs"
+   },
+   {
+    "tag": "ss_XueQiu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_XueQiu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/XueQiu/XueQiu.srs"
+   },
+   {
+    "tag": "ss_Xunlei",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Xunlei.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Xunlei/Xunlei.srs"
+   },
+   {
+    "tag": "ss_YYeTs",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_YYeTs.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/YYeTs/YYeTs.srs"
+   },
+   {
+    "tag": "ss_Yandex",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Yandex.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Yandex/Yandex.srs"
+   },
+   {
+    "tag": "ss_YiChe",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_YiChe.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/YiChe/YiChe.srs"
+   },
+   {
+    "tag": "ss_YiXiaKeJi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_YiXiaKeJi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/YiXiaKeJi/YiXiaKeJi.srs"
+   },
+   {
+    "tag": "ss_YiZhiBo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_YiZhiBo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/YiZhiBo/YiZhiBo.srs"
+   },
+   {
+    "tag": "ss_YouMengChuangXiang",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_YouMengChuangXiang.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/YouMengChuangXiang/YouMengChuangXiang.srs"
+   },
+   {
+    "tag": "ss_YouTube",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_YouTube.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/YouTube/YouTube.srs"
+   },
+   {
+    "tag": "ss_YouTubeMusic",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_YouTubeMusic.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/YouTubeMusic/YouTubeMusic.srs"
+   },
+   {
+    "tag": "ss_YouZan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_YouZan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/YouZan/YouZan.srs"
+   },
+   {
+    "tag": "ss_Youku",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Youku.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Youku/Youku.srs"
+   },
+   {
+    "tag": "ss_YuanFuDao",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_YuanFuDao.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/YuanFuDao/YuanFuDao.srs"
+   },
+   {
+    "tag": "ss_YunFanJiaSu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_YunFanJiaSu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/YunFanJiaSu/YunFanJiaSu.srs"
+   },
+   {
+    "tag": "ss_ZDNS",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZDNS.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZDNS/ZDNS.srs"
+   },
+   {
+    "tag": "ss_Zalo",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Zalo.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Zalo/Zalo.srs"
+   },
+   {
+    "tag": "ss_Zee",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Zee.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Zee/Zee.srs"
+   },
+   {
+    "tag": "ss_ZeeTV",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZeeTV.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZeeTV/ZeeTV.srs"
+   },
+   {
+    "tag": "ss_Zendesk",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Zendesk.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Zendesk/Zendesk.srs"
+   },
+   {
+    "tag": "ss_ZhangYue",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZhangYue.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZhangYue/ZhangYue.srs"
+   },
+   {
+    "tag": "ss_ZhiYinManKe",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZhiYinManKe.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZhiYinManKe/ZhiYinManKe.srs"
+   },
+   {
+    "tag": "ss_ZhiYunZhong",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZhiYunZhong.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZhiYunZhong/ZhiYunZhong.srs"
+   },
+   {
+    "tag": "ss_Zhihu",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Zhihu.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Zhihu/Zhihu.srs"
+   },
+   {
+    "tag": "ss_ZhihuAds",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZhihuAds.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZhihuAds/ZhihuAds.srs"
+   },
+   {
+    "tag": "ss_ZhongGuoShiHua",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZhongGuoShiHua.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZhongGuoShiHua/ZhongGuoShiHua.srs"
+   },
+   {
+    "tag": "ss_ZhongWeiShiJi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZhongWeiShiJi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZhongWeiShiJi/ZhongWeiShiJi.srs"
+   },
+   {
+    "tag": "ss_ZhongXingTongXun",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZhongXingTongXun.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZhongXingTongXun/ZhongXingTongXun.srs"
+   },
+   {
+    "tag": "ss_ZhongYuanYiShang",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZhongYuanYiShang.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZhongYuanYiShang/ZhongYuanYiShang.srs"
+   },
+   {
+    "tag": "ss_ZhuanZhuan",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ZhuanZhuan.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ZhuanZhuan/ZhuanZhuan.srs"
+   },
+   {
+    "tag": "ss_Zoho",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_Zoho.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Zoho/Zoho.srs"
+   },
+   {
+    "tag": "ss_aiXcoder",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_aiXcoder.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/aiXcoder/aiXcoder.srs"
+   },
+   {
+    "tag": "ss_eBay",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_eBay.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/eBay/eBay.srs"
+   },
+   {
+    "tag": "ss_friDay",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_friDay.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/friDay/friDay.srs"
+   },
+   {
+    "tag": "ss_iCloud",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_iCloud.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/iCloud/iCloud.srs"
+   },
+   {
+    "tag": "ss_iCloudPrivateRelay",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_iCloudPrivateRelay.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/iCloudPrivateRelay/iCloudPrivateRelay.srs"
+   },
+   {
+    "tag": "ss_iFlytek",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_iFlytek.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/iFlytek/iFlytek.srs"
+   },
+   {
+    "tag": "ss_iQIYI",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_iQIYI.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/iQIYI/iQIYI.srs"
+   },
+   {
+    "tag": "ss_iQIYIIntl",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_iQIYIIntl.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/iQIYIIntl/iQIYIIntl.srs"
+   },
+   {
+    "tag": "ss_iTalkBB",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_iTalkBB.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/iTalkBB/iTalkBB.srs"
+   },
+   {
+    "tag": "ss_ifanr",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_ifanr.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ifanr/ifanr.srs"
+   },
+   {
+    "tag": "ss_myTVSUPER",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_myTVSUPER.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/myTVSUPER/myTVSUPER.srs"
+   },
+   {
+    "tag": "ss_zhanqi",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ss_zhanqi.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/zhanqi/zhanqi.srs"
+   },
+   {
+    "tag": "ads",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/ads.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/REIJI007/AdBlock_Rule_For_Sing-box@main/adblock_reject.srs"
+   },
+   {
+    "tag": "GFW",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/GFW.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/PROXY/GFW.yaml"
+   },
+   {
+    "tag": "cm_AI",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_AI.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/PROXY/AI.yaml"
+   },
+   {
+    "tag": "cm_ChatAI",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_ChatAI.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/PROXY/ChatAI.yaml"
+   },
+   {
+    "tag": "cm_Google",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_Google.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/PROXY/Google.yaml"
+   },
+   {
+    "tag": "cm_Netflix",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_Netflix.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/PROXY/Netflix.yaml"
+   },
+   {
+    "tag": "cm_Game",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_Game.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/PROXY/Game.yaml"
+   },
+   {
+    "tag": "cm_Paypal",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_Paypal.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/PROXY/Paypal.yaml"
+   },
+   {
+    "tag": "cm_China",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_China.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/PROXY/China.yaml"
+   },
+   {
+    "tag": "cm_Apple",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_Apple.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/DIRECT/Apple.yaml"
+   },
+   {
+    "tag": "cm_ChinaDIRECT",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_ChinaDIRECT.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/DIRECT/China.yaml"
+   },
+   {
+    "tag": "cm_ChinaIPs",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_ChinaIPs.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/DIRECT/ChinaIPs.yaml"
+   },
+   {
+    "tag": "cm_Microsoft",
+    "type": "remote",
+    "format": "source",
+    "path": "./ruleset/cm_Microsoft.json",
+    "url": "https://testingcf.jsdelivr.net/gh/cmontage/proxyrules-cm@main/Clash/DIRECT/Microsoft.yaml"
+   },
+   {
+    "tag": "cn",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/cn.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/Dreista/sing-box-rule-set-cn@rule-set/accelerated-domains.china.conf.srs"
+   },
+   {
+    "tag": "cnip",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/cnip.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/Dreista/sing-box-rule-set-cn@rule-set/apnic-cn-ipv4.srs"
+   },
+   {
+    "tag": "cn-gfw",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/cn-gfw.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/Dreista/sing-box-rule-set-cn@rule-set/filter.txt.srs"
+   },
+   {
+    "tag": "cn-apple",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/cn-apple.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/Dreista/sing-box-rule-set-cn@rule-set/apple.china.conf.srs"
+   },
+   {
+    "tag": "cn-google",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/cn-google.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/Dreista/sing-box-rule-set-cn@rule-set/google.china.conf.srs"
+   },
+   {
+    "tag": "cn-chnroutes",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/cn-chnroutes.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/Dreista/sing-box-rule-set-cn@rule-set/chnroutes.txt.srs"
+   },
+   {
+    "tag": "custom-direct",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/custom-direct.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/foxlesbiao/shellcrash-singbox-rules@main/ruleset/Custom_Direct.srs"
+   },
+   {
+    "tag": "custom-proxy",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/custom-proxy.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/foxlesbiao/shellcrash-singbox-rules@main/ruleset/Custom_Proxy.srs"
+   },
+   {
+    "tag": "steam-cdn",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/steam-cdn.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/foxlesbiao/shellcrash-singbox-rules@main/ruleset/Steam_CDN.srs"
+   },
+   {
+    "tag": "game-download-cdn",
+    "type": "remote",
+    "format": "binary",
+    "path": "./ruleset/game-download-cdn.srs",
+    "url": "https://testingcf.jsdelivr.net/gh/foxlesbiao/shellcrash-singbox-rules@main/ruleset/Game_Download_CDN.srs"
+   }
+  ],
+  "final": "🐟 漏网之鱼"
+ }
+}
